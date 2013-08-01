@@ -12,8 +12,12 @@
 @interface Boat : SKSpriteNode
 {
     SKNode*             debugBody;
+    CGPoint             facingDirection;
 }
 
+@property(nonatomic, assign)CGPoint boatThrustPoint;
+
 - (void)createPhysicBody;
+
 
 @end

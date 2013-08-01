@@ -26,8 +26,8 @@
         
         [self initLabels];
         [self initPhysicsWorld];
-        [self createBoats];
-        [self initJoySticks];
+        //[self createBoats];
+        [self initPlayers];
         [self resetGame];
         
         gameState = GameState_Start;
@@ -64,17 +64,24 @@
     [boat1 createPhysicBody];
     boat1.position = [self screenCenterPoint];
     [self addChild:boat1];
-    
-    
 }
 
-- (void)initJoySticks
+- (void)initPlayers
 {
-    joystick1 = [[Joystick alloc] initAtPosition:ccp([self NToVP_XF:0.5f], [self NToVP_YF:0.2f])];
+    player1 = [[Player alloc] initPlayerAtPosition:[self screenCenterPoint] withView:self];
     
+    joystick1 = [[Joystick alloc] initAtPosition:ccp([self NToVP_XF:0.5f], [self NToVP_YF:0.2f])];
+    joystick1.delegate = self;
     [self addChild:joystick1];
+    
+    player1.joystick = joystick1;
+    
+    
+    gameButton1 = [[GameButton alloc] initAtPosition:ccp([self NToVP_XF:0.7f], [self NToVP_YF:0.2f])];
+    gameButton1.delegate = self;
+    [self addChild:gameButton1];
+    
 }
-
 
 - (void)resetGame
 {
@@ -90,6 +97,7 @@
      
         [joystick1 touchBegan:touch withTouchPosition:location];
         
+        [gameButton1 touchBegan:touch withTouchPosition:location];
         
         
         //NSLog(@"location %f %f", location.x, location.y);
@@ -115,7 +123,7 @@
     {
         
         [joystick1 touchEnd:touch withTouchPosition:CGPointZero];
-
+        [gameButton1 touchEnd:touch withTouchPosition:CGPointZero];
     }
 }
 
@@ -134,8 +142,8 @@
             {
                 [joystick1 update:self.timeSinceLast];
             }
-            
 
+            [player1 update:self.timeSinceLast];
             
         }
             break;
@@ -159,6 +167,32 @@
    // NSLog(@"didEndContact");
 }
 
+#pragma mark - Joystick input
+
+- (void)joystickDidMove:(Joystick *)joystick withDeltaPosition:(CGPoint)position
+{
+    //NSLog(@"joystickDidMove");
+    
+    
+    
+}
+
+#pragma mark - Button Input
+
+- (void)gameButtonOnPress:(GameButton *)gameButton
+{
+    NSLog(@"gameButtonOnPress");
+    
+    [player1 doAcceleration:YES];
+    
+}
+
+- (void)gameButtonOnRelease:(GameButton*)gameButton
+{
+    NSLog(@"gameButtonOnRelease");
+    [player1 doAcceleration:NO];
+
+}
 
 
 @end

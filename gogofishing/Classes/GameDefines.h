@@ -11,6 +11,8 @@
 
 #define JOYSTICK_RADIUS             12.0f
 #define JOYSTICK_MOVE_RADIUS        25.0f
+#define GAME_BUTTON_RADIUS          20.0f
+
 
 typedef enum
 {

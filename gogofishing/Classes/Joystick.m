@@ -45,7 +45,7 @@
     
     CGPathAddArc(path, NULL, 0,0, JOYSTICK_MOVE_RADIUS, 0, M_PI*2, YES);
     shape.path = path;
-    shape.strokeColor = [SKColor redColor];
+    shape.strokeColor = [SKColor lightGrayColor];
     shape.antialiased = YES;
     shape.lineWidth = 1.0f;
     
@@ -118,6 +118,10 @@
             
         }
         
+        if( [_delegate respondsToSelector:@selector(joystickDidMove:withDeltaPosition:)] )
+        {
+            [_delegate joystickDidMove:self withDeltaPosition:_deltaPosition];
+        }
     }
 }
 

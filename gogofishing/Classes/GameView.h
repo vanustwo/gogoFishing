@@ -8,9 +8,12 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "BaseView.h"
+#import "Joystick.h"
+#import "GameButton.h"
+#import "Player.h"
 
 @class Boat;
-@class Joystick;
+
 
 /* Bitmask for the different entities with physics bodies. */
 typedef enum : uint32_t {
@@ -26,12 +29,15 @@ typedef enum{
 }GameState;
 
 
-@interface GameView : BaseView
+@interface GameView : BaseView <JoystickDelegate,GameButtonDelegate>
 {
     GameState                       gameState;
     CFTimeInterval                  m_timer;
     Boat*                           boat1;
     Joystick*                       joystick1;
+    GameButton*                     gameButton1;
+    Player*                         player1;
+    
 }
 
 

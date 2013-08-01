@@ -9,6 +9,14 @@
 #import <SpriteKit/SpriteKit.h>
 #import "CGPointExtension.h"
 
+@class Joystick;
+
+@protocol JoystickDelegate <NSObject>
+
+- (void)joystickDidMove:(Joystick*)joystick withDeltaPosition:(CGPoint)position;
+
+@end
+
 @interface Joystick : SKNode
 {
     
@@ -22,7 +30,6 @@
 - (void)touchMove:(UITouch*)touch withTouchPosition:(CGPoint)touchPosition;
 - (void)touchEnd:(UITouch*)touch withTouchPosition:(CGPoint)touchPosition;
 
-
 @property (nonatomic, strong) SKNode*  stick;
 @property (nonatomic, strong) SKNode*  accelerateButton;
 @property (nonatomic, weak) UITouch*   touch;
@@ -30,7 +37,7 @@
 @property (nonatomic, assign) BOOL     onDragged;
 @property (nonatomic, assign) CGPoint  touchOffset;
 @property (nonatomic, assign) CGPoint  deltaPosition;
-
+@property (nonatomic, strong) id <JoystickDelegate> delegate;
 
 
 @end

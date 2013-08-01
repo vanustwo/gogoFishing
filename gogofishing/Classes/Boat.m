@@ -28,15 +28,17 @@
     self.physicsBody.contactTestBitMask = GameColliderTypeBoat | GameColliderTypeWall;
 
     //self.anchorPoint = CGPointMake(0.5f, 0.1f);
-    
-    
-  /*  debugBody = [PhysicShapeBuilder addBoxShapeNodeWithSize:self.size withPhysicBody:YES];
+
+    debugBody = [PhysicShapeBuilder addBoxShapeNodeWithSize:self.size withPhysicBody:YES];
     debugBody.physicsBody.dynamic = YES;
     debugBody.physicsBody.categoryBitMask = GameColliderTypeBoat;
     debugBody.physicsBody.collisionBitMask = 0;
     debugBody.physicsBody.contactTestBitMask = 0;
     
-    [self addChild:debugBody];*/
+    [self addChild:debugBody];
+    
+    facingDirection = CGPointMake(0, 1);
+    
     
 }
 

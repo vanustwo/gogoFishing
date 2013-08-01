@@ -7,17 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SpriteKit/SpriteKit.h>
 
 @class Boat;
+@class GameView;
+@class Joystick;
 
 @interface Player : NSObject
 {
-    
+    CGFloat         power;
 }
 
-- (id)initPlayerAtPosition:(CGPoint)position;
+- (id)initPlayerAtPosition:(CGPoint)position withView:(GameView*)gameView;
+- (void)createBoatAtPosition:(CGPoint)position;
+- (void)update:(CFTimeInterval)currentTime;
+- (void)doAcceleration:(BOOL)applyGas;
 
 @property(nonatomic,strong)Boat*        boat;
+@property(nonatomic,strong)GameView*    gameView;
+@property(nonatomic,weak)Joystick*      joystick;
 
 
 @end
