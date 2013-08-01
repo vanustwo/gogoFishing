@@ -32,7 +32,9 @@
 		2145EE1717AA5F0C0087A388 /* PosePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE0C17AA5F0C0087A388 /* PosePoint.m */; };
 		2145EE1817AA5F0C0087A388 /* Ragdoll.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE0E17AA5F0C0087A388 /* Ragdoll.m */; };
 		2145EE1917AA5F0C0087A388 /* ShapeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE1017AA5F0C0087A388 /* ShapeNode.m */; };
-		2145EE1A17AA5F0C0087A388 /* StrikeAPoseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE1217AA5F0C0087A388 /* StrikeAPoseView.m */; };
+		2145EE1A17AA5F0C0087A388 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE1217AA5F0C0087A388 /* GameView.m */; };
+		2145EE1D17AA60DA0087A388 /* Boat.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE1C17AA60DA0087A388 /* Boat.m */; };
+		2145EE1E17AA60DA0087A388 /* Boat.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE1C17AA60DA0087A388 /* Boat.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,8 +87,10 @@
 		2145EE0E17AA5F0C0087A388 /* Ragdoll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ragdoll.m; sourceTree = "<group>"; };
 		2145EE0F17AA5F0C0087A388 /* ShapeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShapeNode.h; sourceTree = "<group>"; };
 		2145EE1017AA5F0C0087A388 /* ShapeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShapeNode.m; sourceTree = "<group>"; };
-		2145EE1117AA5F0C0087A388 /* StrikeAPoseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StrikeAPoseView.h; sourceTree = "<group>"; };
-		2145EE1217AA5F0C0087A388 /* StrikeAPoseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StrikeAPoseView.m; sourceTree = "<group>"; };
+		2145EE1117AA5F0C0087A388 /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
+		2145EE1217AA5F0C0087A388 /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
+		2145EE1B17AA60DA0087A388 /* Boat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boat.h; sourceTree = "<group>"; };
+		2145EE1C17AA60DA0087A388 /* Boat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Boat.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,8 +215,10 @@
 				2145EE0E17AA5F0C0087A388 /* Ragdoll.m */,
 				2145EE0F17AA5F0C0087A388 /* ShapeNode.h */,
 				2145EE1017AA5F0C0087A388 /* ShapeNode.m */,
-				2145EE1117AA5F0C0087A388 /* StrikeAPoseView.h */,
-				2145EE1217AA5F0C0087A388 /* StrikeAPoseView.m */,
+				2145EE1117AA5F0C0087A388 /* GameView.h */,
+				2145EE1217AA5F0C0087A388 /* GameView.m */,
+				2145EE1B17AA60DA0087A388 /* Boat.h */,
+				2145EE1C17AA60DA0087A388 /* Boat.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -316,12 +322,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2145EE1D17AA60DA0087A388 /* Boat.m in Sources */,
 				2145EE1517AA5F0C0087A388 /* MouseJoint.m in Sources */,
 				2145EE1417AA5F0C0087A388 /* CGPointExtension.m in Sources */,
 				2145EDE117AA5E7D0087A388 /* MyScene.m in Sources */,
 				2145EDDE17AA5E7D0087A388 /* ViewController.m in Sources */,
 				2145EE1317AA5F0C0087A388 /* BaseView.m in Sources */,
-				2145EE1A17AA5F0C0087A388 /* StrikeAPoseView.m in Sources */,
+				2145EE1A17AA5F0C0087A388 /* GameView.m in Sources */,
 				2145EDD517AA5E7D0087A388 /* AppDelegate.m in Sources */,
 				2145EDD117AA5E7D0087A388 /* main.m in Sources */,
 				2145EE1817AA5F0C0087A388 /* Ragdoll.m in Sources */,
@@ -336,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2145EDF817AA5E7D0087A388 /* gogofishingTests.m in Sources */,
+				2145EE1E17AA60DA0087A388 /* Boat.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

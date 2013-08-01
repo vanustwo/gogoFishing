@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "MyScene.h"
-#import "StrikeAPoseView.h"
+#import "GameView.h"
 
 @implementation ViewController
 
@@ -23,7 +23,7 @@
     skView.showsDrawCount = YES;
     
     // Create and configure the scene.
-    SKScene * scene = [StrikeAPoseView sceneWithSize:skView.bounds.size];
+    SKScene * scene = [GameView sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.

@@ -27,20 +27,12 @@ typedef enum{
 }GameState;
 
 
-@interface StrikeAPoseView : BaseView
+@interface GameView : BaseView
 {
-    CGPoint                         testPoint;
     GameState                       gameState;
-    SKLabelNode*                    poseLabel;
-    SKEmitterNode*                  emitterNode;
     CFTimeInterval                  m_timer;
-    
-    
 }
 
-@property (nonatomic, strong) NSMutableArray*       mouseJointArray;
-@property (nonatomic, strong) NSMutableArray*       posePointArray;
-@property (nonatomic, strong) Ragdoll*              ragdoll;
 
 @end
 
