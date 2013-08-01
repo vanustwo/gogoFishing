@@ -1,0 +1,559 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2145EDC317AA5E7D0087A388 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2145EDC217AA5E7D0087A388 /* Foundation.framework */; };
+		2145EDC517AA5E7D0087A388 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2145EDC417AA5E7D0087A388 /* CoreGraphics.framework */; };
+		2145EDC717AA5E7D0087A388 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2145EDC617AA5E7D0087A388 /* UIKit.framework */; };
+		2145EDC917AA5E7D0087A388 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2145EDC817AA5E7D0087A388 /* SpriteKit.framework */; };
+		2145EDCF17AA5E7D0087A388 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2145EDCD17AA5E7D0087A388 /* InfoPlist.strings */; };
+		2145EDD117AA5E7D0087A388 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EDD017AA5E7D0087A388 /* main.m */; };
+		2145EDD517AA5E7D0087A388 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EDD417AA5E7D0087A388 /* AppDelegate.m */; };
+		2145EDD817AA5E7D0087A388 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2145EDD617AA5E7D0087A388 /* Main_iPhone.storyboard */; };
+		2145EDDB17AA5E7D0087A388 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2145EDD917AA5E7D0087A388 /* Main_iPad.storyboard */; };
+		2145EDDE17AA5E7D0087A388 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EDDD17AA5E7D0087A388 /* ViewController.m */; };
+		2145EDE117AA5E7D0087A388 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EDE017AA5E7D0087A388 /* MyScene.m */; };
+		2145EDE317AA5E7D0087A388 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 2145EDE217AA5E7D0087A388 /* Spaceship.png */; };
+		2145EDE517AA5E7D0087A388 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2145EDE417AA5E7D0087A388 /* Images.xcassets */; };
+		2145EDEC17AA5E7D0087A388 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2145EDEB17AA5E7D0087A388 /* XCTest.framework */; };
+		2145EDED17AA5E7D0087A388 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2145EDC217AA5E7D0087A388 /* Foundation.framework */; };
+		2145EDEE17AA5E7D0087A388 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2145EDC617AA5E7D0087A388 /* UIKit.framework */; };
+		2145EDF617AA5E7D0087A388 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2145EDF417AA5E7D0087A388 /* InfoPlist.strings */; };
+		2145EDF817AA5E7D0087A388 /* gogofishingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EDF717AA5E7D0087A388 /* gogofishingTests.m */; };
+		2145EE1317AA5F0C0087A388 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE0317AA5F0C0087A388 /* BaseView.m */; };
+		2145EE1417AA5F0C0087A388 /* CGPointExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE0517AA5F0C0087A388 /* CGPointExtension.m */; };
+		2145EE1517AA5F0C0087A388 /* MouseJoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE0817AA5F0C0087A388 /* MouseJoint.m */; };
+		2145EE1617AA5F0C0087A388 /* PhysicShapeBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE0A17AA5F0C0087A388 /* PhysicShapeBuilder.m */; };
+		2145EE1717AA5F0C0087A388 /* PosePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE0C17AA5F0C0087A388 /* PosePoint.m */; };
+		2145EE1817AA5F0C0087A388 /* Ragdoll.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE0E17AA5F0C0087A388 /* Ragdoll.m */; };
+		2145EE1917AA5F0C0087A388 /* ShapeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE1017AA5F0C0087A388 /* ShapeNode.m */; };
+		2145EE1A17AA5F0C0087A388 /* StrikeAPoseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE1217AA5F0C0087A388 /* StrikeAPoseView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2145EDEF17AA5E7D0087A388 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2145EDB717AA5E7D0087A388 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2145EDBE17AA5E7D0087A388;
+			remoteInfo = gogofishing;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2145EDBF17AA5E7D0087A388 /* gogofishing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gogofishing.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2145EDC217AA5E7D0087A388 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2145EDC417AA5E7D0087A388 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2145EDC617AA5E7D0087A388 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2145EDC817AA5E7D0087A388 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		2145EDCC17AA5E7D0087A388 /* gogofishing-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "gogofishing-Info.plist"; sourceTree = "<group>"; };
+		2145EDCE17AA5E7D0087A388 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2145EDD017AA5E7D0087A388 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2145EDD217AA5E7D0087A388 /* gogofishing-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "gogofishing-Prefix.pch"; sourceTree = "<group>"; };
+		2145EDD317AA5E7D0087A388 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2145EDD417AA5E7D0087A388 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2145EDD717AA5E7D0087A388 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		2145EDDA17AA5E7D0087A388 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		2145EDDC17AA5E7D0087A388 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		2145EDDD17AA5E7D0087A388 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2145EDDF17AA5E7D0087A388 /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
+		2145EDE017AA5E7D0087A388 /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
+		2145EDE217AA5E7D0087A388 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		2145EDE417AA5E7D0087A388 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2145EDEA17AA5E7D0087A388 /* gogofishingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gogofishingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2145EDEB17AA5E7D0087A388 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		2145EDF317AA5E7D0087A388 /* gogofishingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "gogofishingTests-Info.plist"; sourceTree = "<group>"; };
+		2145EDF517AA5E7D0087A388 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2145EDF717AA5E7D0087A388 /* gogofishingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = gogofishingTests.m; sourceTree = "<group>"; };
+		2145EE0217AA5F0C0087A388 /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseView.h; sourceTree = "<group>"; };
+		2145EE0317AA5F0C0087A388 /* BaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseView.m; sourceTree = "<group>"; };
+		2145EE0417AA5F0C0087A388 /* CGPointExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPointExtension.h; sourceTree = "<group>"; };
+		2145EE0517AA5F0C0087A388 /* CGPointExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPointExtension.m; sourceTree = "<group>"; };
+		2145EE0617AA5F0C0087A388 /* GameMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMacros.h; sourceTree = "<group>"; };
+		2145EE0717AA5F0C0087A388 /* MouseJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MouseJoint.h; sourceTree = "<group>"; };
+		2145EE0817AA5F0C0087A388 /* MouseJoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MouseJoint.m; sourceTree = "<group>"; };
+		2145EE0917AA5F0C0087A388 /* PhysicShapeBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicShapeBuilder.h; sourceTree = "<group>"; };
+		2145EE0A17AA5F0C0087A388 /* PhysicShapeBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicShapeBuilder.m; sourceTree = "<group>"; };
+		2145EE0B17AA5F0C0087A388 /* PosePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PosePoint.h; sourceTree = "<group>"; };
+		2145EE0C17AA5F0C0087A388 /* PosePoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PosePoint.m; sourceTree = "<group>"; };
+		2145EE0D17AA5F0C0087A388 /* Ragdoll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ragdoll.h; sourceTree = "<group>"; };
+		2145EE0E17AA5F0C0087A388 /* Ragdoll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ragdoll.m; sourceTree = "<group>"; };
+		2145EE0F17AA5F0C0087A388 /* ShapeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShapeNode.h; sourceTree = "<group>"; };
+		2145EE1017AA5F0C0087A388 /* ShapeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShapeNode.m; sourceTree = "<group>"; };
+		2145EE1117AA5F0C0087A388 /* StrikeAPoseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StrikeAPoseView.h; sourceTree = "<group>"; };
+		2145EE1217AA5F0C0087A388 /* StrikeAPoseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StrikeAPoseView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2145EDBC17AA5E7D0087A388 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2145EDC517AA5E7D0087A388 /* CoreGraphics.framework in Frameworks */,
+				2145EDC717AA5E7D0087A388 /* UIKit.framework in Frameworks */,
+				2145EDC917AA5E7D0087A388 /* SpriteKit.framework in Frameworks */,
+				2145EDC317AA5E7D0087A388 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2145EDE717AA5E7D0087A388 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2145EDEC17AA5E7D0087A388 /* XCTest.framework in Frameworks */,
+				2145EDEE17AA5E7D0087A388 /* UIKit.framework in Frameworks */,
+				2145EDED17AA5E7D0087A388 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2145EDB617AA5E7D0087A388 = {
+			isa = PBXGroup;
+			children = (
+				2145EDCA17AA5E7D0087A388 /* gogofishing */,
+				2145EDF117AA5E7D0087A388 /* gogofishingTests */,
+				2145EDC117AA5E7D0087A388 /* Frameworks */,
+				2145EDC017AA5E7D0087A388 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2145EDC017AA5E7D0087A388 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2145EDBF17AA5E7D0087A388 /* gogofishing.app */,
+				2145EDEA17AA5E7D0087A388 /* gogofishingTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2145EDC117AA5E7D0087A388 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2145EDC217AA5E7D0087A388 /* Foundation.framework */,
+				2145EDC417AA5E7D0087A388 /* CoreGraphics.framework */,
+				2145EDC617AA5E7D0087A388 /* UIKit.framework */,
+				2145EDC817AA5E7D0087A388 /* SpriteKit.framework */,
+				2145EDEB17AA5E7D0087A388 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2145EDCA17AA5E7D0087A388 /* gogofishing */ = {
+			isa = PBXGroup;
+			children = (
+				2145EE0117AA5F0C0087A388 /* Classes */,
+				2145EDD317AA5E7D0087A388 /* AppDelegate.h */,
+				2145EDD417AA5E7D0087A388 /* AppDelegate.m */,
+				2145EDD617AA5E7D0087A388 /* Main_iPhone.storyboard */,
+				2145EDD917AA5E7D0087A388 /* Main_iPad.storyboard */,
+				2145EDDC17AA5E7D0087A388 /* ViewController.h */,
+				2145EDDD17AA5E7D0087A388 /* ViewController.m */,
+				2145EDDF17AA5E7D0087A388 /* MyScene.h */,
+				2145EDE017AA5E7D0087A388 /* MyScene.m */,
+				2145EDE217AA5E7D0087A388 /* Spaceship.png */,
+				2145EDE417AA5E7D0087A388 /* Images.xcassets */,
+				2145EDCB17AA5E7D0087A388 /* Supporting Files */,
+			);
+			path = gogofishing;
+			sourceTree = "<group>";
+		};
+		2145EDCB17AA5E7D0087A388 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2145EDCC17AA5E7D0087A388 /* gogofishing-Info.plist */,
+				2145EDCD17AA5E7D0087A388 /* InfoPlist.strings */,
+				2145EDD017AA5E7D0087A388 /* main.m */,
+				2145EDD217AA5E7D0087A388 /* gogofishing-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2145EDF117AA5E7D0087A388 /* gogofishingTests */ = {
+			isa = PBXGroup;
+			children = (
+				2145EDF717AA5E7D0087A388 /* gogofishingTests.m */,
+				2145EDF217AA5E7D0087A388 /* Supporting Files */,
+			);
+			path = gogofishingTests;
+			sourceTree = "<group>";
+		};
+		2145EDF217AA5E7D0087A388 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2145EDF317AA5E7D0087A388 /* gogofishingTests-Info.plist */,
+				2145EDF417AA5E7D0087A388 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2145EE0117AA5F0C0087A388 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2145EE0217AA5F0C0087A388 /* BaseView.h */,
+				2145EE0317AA5F0C0087A388 /* BaseView.m */,
+				2145EE0417AA5F0C0087A388 /* CGPointExtension.h */,
+				2145EE0517AA5F0C0087A388 /* CGPointExtension.m */,
+				2145EE0617AA5F0C0087A388 /* GameMacros.h */,
+				2145EE0717AA5F0C0087A388 /* MouseJoint.h */,
+				2145EE0817AA5F0C0087A388 /* MouseJoint.m */,
+				2145EE0917AA5F0C0087A388 /* PhysicShapeBuilder.h */,
+				2145EE0A17AA5F0C0087A388 /* PhysicShapeBuilder.m */,
+				2145EE0B17AA5F0C0087A388 /* PosePoint.h */,
+				2145EE0C17AA5F0C0087A388 /* PosePoint.m */,
+				2145EE0D17AA5F0C0087A388 /* Ragdoll.h */,
+				2145EE0E17AA5F0C0087A388 /* Ragdoll.m */,
+				2145EE0F17AA5F0C0087A388 /* ShapeNode.h */,
+				2145EE1017AA5F0C0087A388 /* ShapeNode.m */,
+				2145EE1117AA5F0C0087A388 /* StrikeAPoseView.h */,
+				2145EE1217AA5F0C0087A388 /* StrikeAPoseView.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2145EDBE17AA5E7D0087A388 /* gogofishing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2145EDFB17AA5E7D0087A388 /* Build configuration list for PBXNativeTarget "gogofishing" */;
+			buildPhases = (
+				2145EDBB17AA5E7D0087A388 /* Sources */,
+				2145EDBC17AA5E7D0087A388 /* Frameworks */,
+				2145EDBD17AA5E7D0087A388 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = gogofishing;
+			productName = gogofishing;
+			productReference = 2145EDBF17AA5E7D0087A388 /* gogofishing.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2145EDE917AA5E7D0087A388 /* gogofishingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2145EDFE17AA5E7D0087A388 /* Build configuration list for PBXNativeTarget "gogofishingTests" */;
+			buildPhases = (
+				2145EDE617AA5E7D0087A388 /* Sources */,
+				2145EDE717AA5E7D0087A388 /* Frameworks */,
+				2145EDE817AA5E7D0087A388 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2145EDF017AA5E7D0087A388 /* PBXTargetDependency */,
+			);
+			name = gogofishingTests;
+			productName = gogofishingTests;
+			productReference = 2145EDEA17AA5E7D0087A388 /* gogofishingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2145EDB717AA5E7D0087A388 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = ustwo;
+				TargetAttributes = {
+					2145EDE917AA5E7D0087A388 = {
+						TestTargetID = 2145EDBE17AA5E7D0087A388;
+					};
+				};
+			};
+			buildConfigurationList = 2145EDBA17AA5E7D0087A388 /* Build configuration list for PBXProject "gogofishing" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2145EDB617AA5E7D0087A388;
+			productRefGroup = 2145EDC017AA5E7D0087A388 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2145EDBE17AA5E7D0087A388 /* gogofishing */,
+				2145EDE917AA5E7D0087A388 /* gogofishingTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2145EDBD17AA5E7D0087A388 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2145EDE317AA5E7D0087A388 /* Spaceship.png in Resources */,
+				2145EDE517AA5E7D0087A388 /* Images.xcassets in Resources */,
+				2145EDDB17AA5E7D0087A388 /* Main_iPad.storyboard in Resources */,
+				2145EDD817AA5E7D0087A388 /* Main_iPhone.storyboard in Resources */,
+				2145EDCF17AA5E7D0087A388 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2145EDE817AA5E7D0087A388 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2145EDF617AA5E7D0087A388 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2145EDBB17AA5E7D0087A388 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2145EE1517AA5F0C0087A388 /* MouseJoint.m in Sources */,
+				2145EE1417AA5F0C0087A388 /* CGPointExtension.m in Sources */,
+				2145EDE117AA5E7D0087A388 /* MyScene.m in Sources */,
+				2145EDDE17AA5E7D0087A388 /* ViewController.m in Sources */,
+				2145EE1317AA5F0C0087A388 /* BaseView.m in Sources */,
+				2145EE1A17AA5F0C0087A388 /* StrikeAPoseView.m in Sources */,
+				2145EDD517AA5E7D0087A388 /* AppDelegate.m in Sources */,
+				2145EDD117AA5E7D0087A388 /* main.m in Sources */,
+				2145EE1817AA5F0C0087A388 /* Ragdoll.m in Sources */,
+				2145EE1717AA5F0C0087A388 /* PosePoint.m in Sources */,
+				2145EE1617AA5F0C0087A388 /* PhysicShapeBuilder.m in Sources */,
+				2145EE1917AA5F0C0087A388 /* ShapeNode.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2145EDE617AA5E7D0087A388 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2145EDF817AA5E7D0087A388 /* gogofishingTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2145EDF017AA5E7D0087A388 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2145EDBE17AA5E7D0087A388 /* gogofishing */;
+			targetProxy = 2145EDEF17AA5E7D0087A388 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2145EDCD17AA5E7D0087A388 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2145EDCE17AA5E7D0087A388 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2145EDD617AA5E7D0087A388 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2145EDD717AA5E7D0087A388 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		2145EDD917AA5E7D0087A388 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2145EDDA17AA5E7D0087A388 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		2145EDF417AA5E7D0087A388 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2145EDF517AA5E7D0087A388 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2145EDF917AA5E7D0087A388 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2145EDFA17AA5E7D0087A388 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2145EDFC17AA5E7D0087A388 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "gogofishing/gogofishing-Prefix.pch";
+				INFOPLIST_FILE = "gogofishing/gogofishing-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2145EDFD17AA5E7D0087A388 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "gogofishing/gogofishing-Prefix.pch";
+				INFOPLIST_FILE = "gogofishing/gogofishing-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		2145EDFF17AA5E7D0087A388 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/gogofishing.app/gogofishing";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "gogofishing/gogofishing-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "gogofishingTests/gogofishingTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		2145EE0017AA5E7D0087A388 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/gogofishing.app/gogofishing";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "gogofishing/gogofishing-Prefix.pch";
+				INFOPLIST_FILE = "gogofishingTests/gogofishingTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2145EDBA17AA5E7D0087A388 /* Build configuration list for PBXProject "gogofishing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2145EDF917AA5E7D0087A388 /* Debug */,
+				2145EDFA17AA5E7D0087A388 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2145EDFB17AA5E7D0087A388 /* Build configuration list for PBXNativeTarget "gogofishing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2145EDFC17AA5E7D0087A388 /* Debug */,
+				2145EDFD17AA5E7D0087A388 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2145EDFE17AA5E7D0087A388 /* Build configuration list for PBXNativeTarget "gogofishingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2145EDFF17AA5E7D0087A388 /* Debug */,
+				2145EE0017AA5E7D0087A388 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2145EDB717AA5E7D0087A388 /* Project object */;
+}
