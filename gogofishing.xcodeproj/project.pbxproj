@@ -42,6 +42,8 @@
 		2145EE3417AA69B10087A388 /* sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 2145EE2C17AA69B10087A388 /* sprites.atlas */; };
 		2145EE3917AA74660087A388 /* Joystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE3817AA74660087A388 /* Joystick.m */; };
 		2145EE3A17AA74660087A388 /* Joystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE3817AA74660087A388 /* Joystick.m */; };
+		2145EE3D17AA76AA0087A388 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE3C17AA76AA0087A388 /* Player.m */; };
+		2145EE3E17AA76AA0087A388 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE3C17AA76AA0087A388 /* Player.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,8 @@
 		2145EE3617AA6D9B0087A388 /* GameDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDefines.h; sourceTree = "<group>"; };
 		2145EE3717AA74660087A388 /* Joystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Joystick.h; sourceTree = "<group>"; };
 		2145EE3817AA74660087A388 /* Joystick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Joystick.m; sourceTree = "<group>"; };
+		2145EE3B17AA76AA0087A388 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		2145EE3C17AA76AA0087A388 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +231,8 @@
 				2145EE3617AA6D9B0087A388 /* GameDefines.h */,
 				2145EE3717AA74660087A388 /* Joystick.h */,
 				2145EE3817AA74660087A388 /* Joystick.m */,
+				2145EE3B17AA76AA0087A388 /* Player.h */,
+				2145EE3C17AA76AA0087A388 /* Player.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -367,6 +373,7 @@
 				2145EE1D17AA60DA0087A388 /* Boat.m in Sources */,
 				2145EE3917AA74660087A388 /* Joystick.m in Sources */,
 				2145EE1517AA5F0C0087A388 /* MouseJoint.m in Sources */,
+				2145EE3D17AA76AA0087A388 /* Player.m in Sources */,
 				2145EE1417AA5F0C0087A388 /* CGPointExtension.m in Sources */,
 				2145EDE117AA5E7D0087A388 /* MyScene.m in Sources */,
 				2145EDDE17AA5E7D0087A388 /* ViewController.m in Sources */,
@@ -383,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2145EE3E17AA76AA0087A388 /* Player.m in Sources */,
 				2145EDF817AA5E7D0087A388 /* gogofishingTests.m in Sources */,
 				2145EE3A17AA74660087A388 /* Joystick.m in Sources */,
 				2145EE1E17AA60DA0087A388 /* Boat.m in Sources */,

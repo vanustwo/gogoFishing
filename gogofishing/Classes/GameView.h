@@ -10,6 +10,7 @@
 #import "BaseView.h"
 
 @class Boat;
+@class Joystick;
 
 /* Bitmask for the different entities with physics bodies. */
 typedef enum : uint32_t {
@@ -30,6 +31,7 @@ typedef enum{
     GameState                       gameState;
     CFTimeInterval                  m_timer;
     Boat*                           boat1;
+    Joystick*                       joystick1;
 }
 
 

@@ -9,6 +9,7 @@
 #import "GameView.h"
 #import "PhysicShapeBuilder.h"
 #import "Boat.h"
+#import "Joystick.h"
 
 #define MAX_TOUCHES             2
 
@@ -26,7 +27,7 @@
         [self initLabels];
         [self initPhysicsWorld];
         [self createBoats];
-
+        [self initJoySticks];
         [self resetGame];
         
         gameState = GameState_Start;
@@ -67,6 +68,13 @@
     
 }
 
+- (void)initJoySticks
+{
+    joystick1 = [[Joystick alloc] initAtPosition:ccp([self NToVP_XF:0.5f], [self NToVP_YF:0.2f])];
+    
+    [self addChild:joystick1];
+}
+
 
 - (void)resetGame
 {
@@ -79,8 +87,12 @@
 
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
+     
+        [joystick1 touchBegan:touch withTouchPosition:location];
         
-        NSLog(@"location %f %f", location.x, location.y);
+        
+        
+        //NSLog(@"location %f %f", location.x, location.y);
 
         //[boat1.physicsBody applyForce:ccp(0, 20.2f) atPoint:boat1.position];
         
@@ -92,7 +104,8 @@
     for (UITouch *touch in touches)
     {
         CGPoint location = [touch locationInNode:self];
-
+        
+        [joystick1 touchMove:touch withTouchPosition:location];
     }
 }
 
@@ -101,6 +114,8 @@
     for (UITouch *touch in touches)
     {
         
+        [joystick1 touchEnd:touch withTouchPosition:CGPointZero];
+
     }
 }
 
@@ -115,15 +130,16 @@
         case GameState_Start:
         {
             
+            if(joystick1)
+            {
+                [joystick1 update:self.timeSinceLast];
+            }
+            
 
             
         }
             break;
-        case GameState_PoseComplete:
-        {
-          
-            
-        }break;
+
         default:
             break;
     }

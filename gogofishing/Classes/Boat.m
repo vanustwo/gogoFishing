@@ -10,7 +10,9 @@
 #import "PhysicShapeBuilder.h"
 #import "GameView.h"
 
-@implementation Boat(Private)
+
+
+@interface Boat (Private)
 
 
 @end
