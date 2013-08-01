@@ -43,7 +43,7 @@
     
     CGPathAddRect(path, NULL, CGRectMake(-size.width/2, -size.height/2, size.width, size.height));
     shape.path = path;
-    shape.fillColor = [SKColor blueColor];
+    //shape.fillColor = [SKColor blueColor];
     shape.strokeColor = [SKColor redColor];
     shape.lineWidth = 0.4f;
     shape.antialiased = YES;

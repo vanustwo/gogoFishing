@@ -7,9 +7,8 @@
 //
 
 #import "GameView.h"
-#import "Ragdoll.h"
 #import "PhysicShapeBuilder.h"
-#import "PosePoint.h"
+#import "Boat.h"
 
 #define MAX_TOUCHES             2
 
@@ -26,6 +25,7 @@
         
         [self initLabels];
         [self initPhysicsWorld];
+        [self createBoats];
 
         [self resetGame];
         
@@ -37,7 +37,7 @@
 - (void)initLabels
 {
     SKLabelNode *label = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-    label.text = @"Strike a pose!";
+    label.text = @"Go Fishing";
     label.fontSize = 20;
     label.position = CGPointMake([self NToVP_X:0.5f], [self NToVP_Y:0.95f]);
     [self addChild:label];
@@ -47,18 +47,23 @@
 - (void)initPhysicsWorld
 {
     NSLog(@"initPhysicsWorld");
-    [self.physicsWorld setGravity:CGPointMake(0, -9.8f)];
+    [self.physicsWorld setGravity:CGPointMake(0, 0)];
     self.physicsWorld.contactDelegate = self;
     self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
-    //self.physicsBody.categoryBitMask = YogaColliderTypeWall;
+    self.physicsBody.categoryBitMask = GameColliderTypeWall;
     self.physicsBody.dynamic = NO;
 
-    /*emitterNode = [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:@"smoke" ofType:@"sks"]];
-    emitterNode.position = [self screenCenterPoint];
-    [emitterNode resetSimulation];
-    [self addChild:emitterNode];*/
-    
     m_timer = 0;
+    
+}
+
+- (void)createBoats
+{
+    boat1 = [Boat spriteNodeWithImageNamed:@"redboat.png"];
+    [boat1 createPhysicBody];
+    boat1.position = [self screenCenterPoint];
+    [self addChild:boat1];
+    
     
 }
 
@@ -77,8 +82,8 @@
         
         NSLog(@"location %f %f", location.x, location.y);
 
+        //[boat1.physicsBody applyForce:ccp(0, 20.2f) atPoint:boat1.position];
         
-       
     }
 }
 

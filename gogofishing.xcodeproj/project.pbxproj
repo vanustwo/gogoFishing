@@ -18,7 +18,6 @@
 		2145EDDB17AA5E7D0087A388 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2145EDD917AA5E7D0087A388 /* Main_iPad.storyboard */; };
 		2145EDDE17AA5E7D0087A388 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EDDD17AA5E7D0087A388 /* ViewController.m */; };
 		2145EDE117AA5E7D0087A388 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EDE017AA5E7D0087A388 /* MyScene.m */; };
-		2145EDE317AA5E7D0087A388 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 2145EDE217AA5E7D0087A388 /* Spaceship.png */; };
 		2145EDE517AA5E7D0087A388 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2145EDE417AA5E7D0087A388 /* Images.xcassets */; };
 		2145EDEC17AA5E7D0087A388 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2145EDEB17AA5E7D0087A388 /* XCTest.framework */; };
 		2145EDED17AA5E7D0087A388 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2145EDC217AA5E7D0087A388 /* Foundation.framework */; };
@@ -29,12 +28,20 @@
 		2145EE1417AA5F0C0087A388 /* CGPointExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE0517AA5F0C0087A388 /* CGPointExtension.m */; };
 		2145EE1517AA5F0C0087A388 /* MouseJoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE0817AA5F0C0087A388 /* MouseJoint.m */; };
 		2145EE1617AA5F0C0087A388 /* PhysicShapeBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE0A17AA5F0C0087A388 /* PhysicShapeBuilder.m */; };
-		2145EE1717AA5F0C0087A388 /* PosePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE0C17AA5F0C0087A388 /* PosePoint.m */; };
-		2145EE1817AA5F0C0087A388 /* Ragdoll.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE0E17AA5F0C0087A388 /* Ragdoll.m */; };
 		2145EE1917AA5F0C0087A388 /* ShapeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE1017AA5F0C0087A388 /* ShapeNode.m */; };
 		2145EE1A17AA5F0C0087A388 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE1217AA5F0C0087A388 /* GameView.m */; };
 		2145EE1D17AA60DA0087A388 /* Boat.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE1C17AA60DA0087A388 /* Boat.m */; };
 		2145EE1E17AA60DA0087A388 /* Boat.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE1C17AA60DA0087A388 /* Boat.m */; };
+		2145EE2D17AA69B10087A388 /* blood.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2145EE2817AA69B10087A388 /* blood.sks */; };
+		2145EE2E17AA69B10087A388 /* blood.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2145EE2817AA69B10087A388 /* blood.sks */; };
+		2145EE2F17AA69B10087A388 /* smoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2145EE2917AA69B10087A388 /* smoke.sks */; };
+		2145EE3017AA69B10087A388 /* smoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2145EE2917AA69B10087A388 /* smoke.sks */; };
+		2145EE3117AA69B10087A388 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 2145EE2A17AA69B10087A388 /* spark.png */; };
+		2145EE3217AA69B10087A388 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 2145EE2A17AA69B10087A388 /* spark.png */; };
+		2145EE3317AA69B10087A388 /* sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 2145EE2C17AA69B10087A388 /* sprites.atlas */; };
+		2145EE3417AA69B10087A388 /* sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 2145EE2C17AA69B10087A388 /* sprites.atlas */; };
+		2145EE3917AA74660087A388 /* Joystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE3817AA74660087A388 /* Joystick.m */; };
+		2145EE3A17AA74660087A388 /* Joystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE3817AA74660087A388 /* Joystick.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +72,6 @@
 		2145EDDD17AA5E7D0087A388 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2145EDDF17AA5E7D0087A388 /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
 		2145EDE017AA5E7D0087A388 /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
-		2145EDE217AA5E7D0087A388 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		2145EDE417AA5E7D0087A388 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2145EDEA17AA5E7D0087A388 /* gogofishingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gogofishingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2145EDEB17AA5E7D0087A388 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -81,16 +87,19 @@
 		2145EE0817AA5F0C0087A388 /* MouseJoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MouseJoint.m; sourceTree = "<group>"; };
 		2145EE0917AA5F0C0087A388 /* PhysicShapeBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicShapeBuilder.h; sourceTree = "<group>"; };
 		2145EE0A17AA5F0C0087A388 /* PhysicShapeBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicShapeBuilder.m; sourceTree = "<group>"; };
-		2145EE0B17AA5F0C0087A388 /* PosePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PosePoint.h; sourceTree = "<group>"; };
-		2145EE0C17AA5F0C0087A388 /* PosePoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PosePoint.m; sourceTree = "<group>"; };
-		2145EE0D17AA5F0C0087A388 /* Ragdoll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ragdoll.h; sourceTree = "<group>"; };
-		2145EE0E17AA5F0C0087A388 /* Ragdoll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ragdoll.m; sourceTree = "<group>"; };
 		2145EE0F17AA5F0C0087A388 /* ShapeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShapeNode.h; sourceTree = "<group>"; };
 		2145EE1017AA5F0C0087A388 /* ShapeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShapeNode.m; sourceTree = "<group>"; };
 		2145EE1117AA5F0C0087A388 /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
 		2145EE1217AA5F0C0087A388 /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
 		2145EE1B17AA60DA0087A388 /* Boat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boat.h; sourceTree = "<group>"; };
 		2145EE1C17AA60DA0087A388 /* Boat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Boat.m; sourceTree = "<group>"; };
+		2145EE2817AA69B10087A388 /* blood.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = blood.sks; sourceTree = "<group>"; };
+		2145EE2917AA69B10087A388 /* smoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = smoke.sks; sourceTree = "<group>"; };
+		2145EE2A17AA69B10087A388 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		2145EE2C17AA69B10087A388 /* sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = sprites.atlas; sourceTree = "<group>"; };
+		2145EE3617AA6D9B0087A388 /* GameDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDefines.h; sourceTree = "<group>"; };
+		2145EE3717AA74660087A388 /* Joystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Joystick.h; sourceTree = "<group>"; };
+		2145EE3817AA74660087A388 /* Joystick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Joystick.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +130,7 @@
 		2145EDB617AA5E7D0087A388 = {
 			isa = PBXGroup;
 			children = (
+				2145EE2617AA69B10087A388 /* Assets */,
 				2145EDCA17AA5E7D0087A388 /* gogofishing */,
 				2145EDF117AA5E7D0087A388 /* gogofishingTests */,
 				2145EDC117AA5E7D0087A388 /* Frameworks */,
@@ -161,7 +171,6 @@
 				2145EDDD17AA5E7D0087A388 /* ViewController.m */,
 				2145EDDF17AA5E7D0087A388 /* MyScene.h */,
 				2145EDE017AA5E7D0087A388 /* MyScene.m */,
-				2145EDE217AA5E7D0087A388 /* Spaceship.png */,
 				2145EDE417AA5E7D0087A388 /* Images.xcassets */,
 				2145EDCB17AA5E7D0087A388 /* Supporting Files */,
 			);
@@ -209,18 +218,44 @@
 				2145EE0817AA5F0C0087A388 /* MouseJoint.m */,
 				2145EE0917AA5F0C0087A388 /* PhysicShapeBuilder.h */,
 				2145EE0A17AA5F0C0087A388 /* PhysicShapeBuilder.m */,
-				2145EE0B17AA5F0C0087A388 /* PosePoint.h */,
-				2145EE0C17AA5F0C0087A388 /* PosePoint.m */,
-				2145EE0D17AA5F0C0087A388 /* Ragdoll.h */,
-				2145EE0E17AA5F0C0087A388 /* Ragdoll.m */,
 				2145EE0F17AA5F0C0087A388 /* ShapeNode.h */,
 				2145EE1017AA5F0C0087A388 /* ShapeNode.m */,
 				2145EE1117AA5F0C0087A388 /* GameView.h */,
 				2145EE1217AA5F0C0087A388 /* GameView.m */,
 				2145EE1B17AA60DA0087A388 /* Boat.h */,
 				2145EE1C17AA60DA0087A388 /* Boat.m */,
+				2145EE3617AA6D9B0087A388 /* GameDefines.h */,
+				2145EE3717AA74660087A388 /* Joystick.h */,
+				2145EE3817AA74660087A388 /* Joystick.m */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		2145EE2617AA69B10087A388 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2145EE2717AA69B10087A388 /* Particles */,
+				2145EE2B17AA69B10087A388 /* Textures */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		2145EE2717AA69B10087A388 /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				2145EE2817AA69B10087A388 /* blood.sks */,
+				2145EE2917AA69B10087A388 /* smoke.sks */,
+				2145EE2A17AA69B10087A388 /* spark.png */,
+			);
+			path = Particles;
+			sourceTree = "<group>";
+		};
+		2145EE2B17AA69B10087A388 /* Textures */ = {
+			isa = PBXGroup;
+			children = (
+				2145EE2C17AA69B10087A388 /* sprites.atlas */,
+			);
+			path = Textures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,9 +334,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2145EDE317AA5E7D0087A388 /* Spaceship.png in Resources */,
 				2145EDE517AA5E7D0087A388 /* Images.xcassets in Resources */,
+				2145EE2F17AA69B10087A388 /* smoke.sks in Resources */,
+				2145EE3317AA69B10087A388 /* sprites.atlas in Resources */,
 				2145EDDB17AA5E7D0087A388 /* Main_iPad.storyboard in Resources */,
+				2145EE3117AA69B10087A388 /* spark.png in Resources */,
+				2145EE2D17AA69B10087A388 /* blood.sks in Resources */,
 				2145EDD817AA5E7D0087A388 /* Main_iPhone.storyboard in Resources */,
 				2145EDCF17AA5E7D0087A388 /* InfoPlist.strings in Resources */,
 			);
@@ -311,6 +349,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2145EE3417AA69B10087A388 /* sprites.atlas in Resources */,
+				2145EE2E17AA69B10087A388 /* blood.sks in Resources */,
+				2145EE3217AA69B10087A388 /* spark.png in Resources */,
+				2145EE3017AA69B10087A388 /* smoke.sks in Resources */,
 				2145EDF617AA5E7D0087A388 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2145EE1D17AA60DA0087A388 /* Boat.m in Sources */,
+				2145EE3917AA74660087A388 /* Joystick.m in Sources */,
 				2145EE1517AA5F0C0087A388 /* MouseJoint.m in Sources */,
 				2145EE1417AA5F0C0087A388 /* CGPointExtension.m in Sources */,
 				2145EDE117AA5E7D0087A388 /* MyScene.m in Sources */,
@@ -331,8 +374,6 @@
 				2145EE1A17AA5F0C0087A388 /* GameView.m in Sources */,
 				2145EDD517AA5E7D0087A388 /* AppDelegate.m in Sources */,
 				2145EDD117AA5E7D0087A388 /* main.m in Sources */,
-				2145EE1817AA5F0C0087A388 /* Ragdoll.m in Sources */,
-				2145EE1717AA5F0C0087A388 /* PosePoint.m in Sources */,
 				2145EE1617AA5F0C0087A388 /* PhysicShapeBuilder.m in Sources */,
 				2145EE1917AA5F0C0087A388 /* ShapeNode.m in Sources */,
 			);
@@ -343,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2145EDF817AA5E7D0087A388 /* gogofishingTests.m in Sources */,
+				2145EE3A17AA74660087A388 /* Joystick.m in Sources */,
 				2145EE1E17AA60DA0087A388 /* Boat.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 //
-//  Boat.h
+//  Joystick.h
 //  gogofishing
 //
 //  Created by Van on 01/08/2013.
@@ -7,13 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-#import "ShapeNode.h"
 
-@interface Boat : SKSpriteNode
-{
-    SKNode*             debugBody;
-}
-
-- (void)createPhysicBody;
+@interface Joystick : SKNode
 
 @end

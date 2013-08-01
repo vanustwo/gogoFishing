@@ -9,15 +9,13 @@
 #import <SpriteKit/SpriteKit.h>
 #import "BaseView.h"
 
-@class Ragdoll;
+@class Boat;
 
 /* Bitmask for the different entities with physics bodies. */
-typedef enum : uint8_t {
-    YogaColliderTypeWall             = 1,
-    YogaColliderTypeBody             = 2,
-    YogaColliderTypeArm              = 4,
-    YogaColliderTypeLeg              = 8,
-} YogaColliderType;
+typedef enum : uint32_t {
+    GameColliderTypeWall            = 1 << 0,
+    GameColliderTypeBoat            = 1 << 1,
+} GameColliderType;
 
 typedef enum{
     GameState_Idle,
@@ -31,6 +29,7 @@ typedef enum{
 {
     GameState                       gameState;
     CFTimeInterval                  m_timer;
+    Boat*                           boat1;
 }
 
 
