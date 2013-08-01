@@ -58,14 +58,6 @@
     
 }
 
-- (void)createBoats
-{
-    boat1 = [Boat spriteNodeWithImageNamed:@"redboat.png"];
-    [boat1 createPhysicBody];
-    boat1.position = [self screenCenterPoint];
-    [self addChild:boat1];
-}
-
 - (void)initPlayers
 {
     player1 = [[Player alloc] initPlayerAtPosition:[self screenCenterPoint] withView:self];

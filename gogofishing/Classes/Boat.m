@@ -9,7 +9,7 @@
 #import "Boat.h"
 #import "PhysicShapeBuilder.h"
 #import "GameView.h"
-
+#import "GameMacros.h"
 
 
 @interface Boat (Private)
@@ -19,7 +19,7 @@
 
 @implementation Boat
 
-- (void)createPhysicBody
+- (void)createPhysicBodyWithGameView:(GameView*)gameView
 {
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
     self.physicsBody.dynamic = YES;
@@ -27,18 +27,23 @@
     self.physicsBody.collisionBitMask = GameColliderTypeBoat | GameColliderTypeWall;
     self.physicsBody.contactTestBitMask = GameColliderTypeBoat | GameColliderTypeWall;
 
-    //self.anchorPoint = CGPointMake(0.5f, 0.1f);
-
     debugBody = [PhysicShapeBuilder addBoxShapeNodeWithSize:self.size withPhysicBody:YES];
     debugBody.physicsBody.dynamic = YES;
     debugBody.physicsBody.categoryBitMask = GameColliderTypeBoat;
     debugBody.physicsBody.collisionBitMask = 0;
     debugBody.physicsBody.contactTestBitMask = 0;
     
+    
     [self addChild:debugBody];
     
-    facingDirection = CGPointMake(0, 1);
+    self.zRotation = CC_DEGREES_TO_RADIANS(-120.f);
     
+    NSLog(@" self.zRotation %f", self.zRotation);
+    
+    facingDirection = CGPointMake(0, 1);
+
+    thrusterBody = [PhysicShapeBuilder addBoxShapeNodeWithSize:self.size withPhysicBody:YES];
+    [self addChild:thrusterBody];
     
 }
 

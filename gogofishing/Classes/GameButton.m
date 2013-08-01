@@ -87,6 +87,9 @@
 {
     if( _onTouch && [_touch isEqual:touch] )
     {
+        _onTouch = NO;
+        _touch = nil;
+        
         if( [_delegate respondsToSelector:@selector(gameButtonOnRelease:)] )
         {
             [_delegate gameButtonOnRelease:self];

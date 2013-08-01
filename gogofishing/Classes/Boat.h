@@ -9,15 +9,19 @@
 #import <SpriteKit/SpriteKit.h>
 #import "ShapeNode.h"
 
+@class GameView;
+
 @interface Boat : SKSpriteNode
 {
     SKNode*             debugBody;
+    SKNode*             thrusterBody;
+    
     CGPoint             facingDirection;
 }
 
 @property(nonatomic, assign)CGPoint boatThrustPoint;
 
-- (void)createPhysicBody;
+- (void)createPhysicBodyWithGameView:(GameView*)gameView;
 
 
 @end
