@@ -18,6 +18,7 @@
     
     // Configure the view.
     SKView * skView = (SKView *)self.view;
+    skView.multipleTouchEnabled = true;
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
     skView.showsDrawCount = YES;

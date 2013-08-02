@@ -85,7 +85,7 @@
 
 - (void)touchEnd:(UITouch*)touch withTouchPosition:(CGPoint)touchPosition
 {
-    if( _onTouch && [_touch isEqual:touch] )
+    if( _onTouch && [_touch isEqual:touch])
     {
         _onTouch = NO;
         _touch = nil;

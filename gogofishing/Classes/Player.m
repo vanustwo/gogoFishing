@@ -31,9 +31,11 @@
 - (void)createBoatAtPosition:(CGPoint)position
 {
     _boat = [Boat spriteNodeWithImageNamed:@"redboat.png"];
+    [_gameView addChild:_boat];
+    
     [_boat createPhysicBodyWithGameView:_gameView];
     _boat.position = position;
-    [_gameView addChild:_boat];
+    
     
     
     
@@ -43,26 +45,23 @@
 
 - (void)doAcceleration:(BOOL)applyGas
 {
+
+    self.boat.applyAcceleration = applyGas;
     
-    float force = 50;
-    CGPoint vector = ccpForAngle(-_boat.zRotation);
-    
-    CGPoint forceVector = ccpMult(vector, force);
-    CGPoint newForceVector = ccp(forceVector.y, forceVector.x);
-    NSLog(@"forceVector %f %f", newForceVector.x, newForceVector.y);
-    
-    
-    
-    
-    
-    
-    [_boat.physicsBody applyForce:newForceVector atPoint:_boat.position];
     
 }
 
 - (void)update:(CFTimeInterval)currentTime
 {
+    [_boat update:currentTime];
+}
+
+- (void)joystickDidMove:(Joystick *)joystick withDeltaPosition:(CGPoint)position
+{
+    NSLog(@"joystickDidMove %f", position.x);
+    
     
 }
+
 
 @end

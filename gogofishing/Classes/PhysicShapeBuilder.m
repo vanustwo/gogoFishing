@@ -42,6 +42,8 @@
     CGMutablePathRef path = CGPathCreateMutable();
     
     CGPathAddRect(path, NULL, CGRectMake(-size.width/2, -size.height/2, size.width, size.height));
+    //CGPathAddRect(path, NULL, CGRectMake(0, 0, size.width, size.height));
+    
     shape.path = path;
     //shape.fillColor = [SKColor blueColor];
     shape.strokeColor = [SKColor redColor];
@@ -53,7 +55,6 @@
     if( usePhysics )
     {
         shape.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:size];
-        shape.physicsBody.density = 3.0f;
     }
     
     return shape;

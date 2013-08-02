@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
+#import "Joystick.h"
 
 @class Boat;
 @class GameView;
 @class Joystick;
 
-@interface Player : NSObject
+@interface Player : NSObject<JoystickDelegate>
 {
     CGFloat         power;
 }

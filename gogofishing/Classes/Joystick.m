@@ -58,6 +58,7 @@
 
 - (void)resetStick
 {
+    NSLog(@"resetStick");
     self.onTouch = NO;
     self.onDragged = NO;
     self.stick.position = CGPointZero;
@@ -74,6 +75,8 @@
 {
     if( !_onTouch )
     {
+        NSLog(@"Joystick touchBegan");
+        
         CGFloat distance = ccpDistance(touchPosition, [self stickPosition]);
         if( distance<JOYSTICK_RADIUS )
         {
@@ -103,7 +106,7 @@
         CGFloat distance = ccpDistance(touchPosition, self.position);
 
         float touchAngle = ccpToAngle(stickOffset);
-        _deltaPosition = stickOffset;
+       
         
         if( distance<JOYSTICK_MOVE_RADIUS )
         {
@@ -118,6 +121,9 @@
             
         }
         
+         _deltaPosition = ccpSub([self stickPosition], self.position);
+        _deltaPosition = ccpClamp(_deltaPosition, ccp(-JOYSTICK_MOVE_RADIUS, -JOYSTICK_MOVE_RADIUS), ccp(JOYSTICK_MOVE_RADIUS, JOYSTICK_MOVE_RADIUS));
+        
         if( [_delegate respondsToSelector:@selector(joystickDidMove:withDeltaPosition:)] )
         {
             [_delegate joystickDidMove:self withDeltaPosition:_deltaPosition];
@@ -127,7 +133,7 @@
 
 - (void)touchEnd:(UITouch*)touch withTouchPosition:(CGPoint)touchPosition
 {
-    if( _onTouch && [_touch isEqual:touch] )
+    if( _onTouch && [_touch isEqual:touch])
     {
         [self resetStick];
     }

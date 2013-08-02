@@ -23,10 +23,8 @@
         /* Setup your scene here */
         
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
-        
         [self initLabels];
         [self initPhysicsWorld];
-        //[self createBoats];
         [self initPlayers];
         [self resetGame];
         
@@ -63,13 +61,12 @@
     player1 = [[Player alloc] initPlayerAtPosition:[self screenCenterPoint] withView:self];
     
     joystick1 = [[Joystick alloc] initAtPosition:ccp([self NToVP_XF:0.5f], [self NToVP_YF:0.2f])];
-    joystick1.delegate = self;
+    player1.joystick = joystick1;
+    player1.joystick.delegate = player1;
     [self addChild:joystick1];
     
-    player1.joystick = joystick1;
-    
-    
-    gameButton1 = [[GameButton alloc] initAtPosition:ccp([self NToVP_XF:0.7f], [self NToVP_YF:0.2f])];
+
+    gameButton1 = [[GameButton alloc] initAtPosition:ccp([self NToVP_XF:0.9f], [self NToVP_YF:0.2f])];
     gameButton1.delegate = self;
     [self addChild:gameButton1];
     
@@ -87,15 +84,27 @@
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
      
-        [joystick1 touchBegan:touch withTouchPosition:location];
+        if([joystick1.touch isEqual:touch])
+        {
+            continue;
+        }
+        else
+        {
+            [joystick1 touchBegan:touch withTouchPosition:location];
+        }
         
-        [gameButton1 touchBegan:touch withTouchPosition:location];
+        
+        if([gameButton1.touch isEqual:touch])
+        {
+            continue;
+        }
+        else
+        {
+            [gameButton1 touchBegan:touch withTouchPosition:location];
+        }
         
         
         //NSLog(@"location %f %f", location.x, location.y);
-
-        //[boat1.physicsBody applyForce:ccp(0, 20.2f) atPoint:boat1.position];
-        
     }
 }
 
@@ -159,15 +168,6 @@
    // NSLog(@"didEndContact");
 }
 
-#pragma mark - Joystick input
-
-- (void)joystickDidMove:(Joystick *)joystick withDeltaPosition:(CGPoint)position
-{
-    //NSLog(@"joystickDidMove");
-    
-    
-    
-}
 
 #pragma mark - Button Input
 

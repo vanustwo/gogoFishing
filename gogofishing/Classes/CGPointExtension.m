@@ -31,6 +31,14 @@
 
 #define kCGPointEpsilon FLT_EPSILON
 
+/** @def CC_SWAP
+ simple macro that swaps 2 variables
+ */
+#define CC_SWAP( x, y )			\
+({ __typeof__(x) temp  = (x);		\
+x = y; y = temp;		\
+})
+
 CGFloat
 ccpLength(const CGPoint v)
 {
@@ -64,6 +72,19 @@ ccpToAngle(const CGPoint v)
 CGPoint ccpLerp(CGPoint a, CGPoint b, float alpha)
 {
 	return ccpAdd(ccpMult(a, 1.f - alpha), ccpMult(b, alpha));
+}
+
+float clampf(float value, float min_inclusive, float max_inclusive)
+{
+	if (min_inclusive > max_inclusive) {
+		CC_SWAP(min_inclusive,max_inclusive);
+	}
+	return value < min_inclusive ? min_inclusive : value < max_inclusive? value : max_inclusive;
+}
+
+CGPoint ccpClamp(CGPoint p, CGPoint min_inclusive, CGPoint max_inclusive)
+{
+	return ccp(clampf(p.x,min_inclusive.x,max_inclusive.x), clampf(p.y, min_inclusive.y, max_inclusive.y));
 }
 
 CGPoint ccpFromSize(CGSize s)

@@ -14,14 +14,18 @@
 @interface Boat : SKSpriteNode
 {
     SKNode*             debugBody;
-    SKNode*             thrusterBody;
-    
     CGPoint             facingDirection;
+    
 }
 
-@property(nonatomic, assign)CGPoint boatThrustPoint;
+@property(nonatomic, assign)CGPoint     boatThrustPoint;
+@property(nonatomic, strong)SKNode*     thrusterBody;
+@property(nonatomic, assign)BOOL        applyAcceleration;
+@property(nonatomic, assign)CGPoint     steering;
+
 
 - (void)createPhysicBodyWithGameView:(GameView*)gameView;
+- (void)update:(CFTimeInterval)currentTime;
 
 
 @end

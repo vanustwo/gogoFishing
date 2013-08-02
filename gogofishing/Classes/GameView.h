@@ -29,7 +29,7 @@ typedef enum{
 }GameState;
 
 
-@interface GameView : BaseView <JoystickDelegate,GameButtonDelegate>
+@interface GameView : BaseView <GameButtonDelegate>
 {
     GameState                       gameState;
     CFTimeInterval                  m_timer;
