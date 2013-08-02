@@ -58,8 +58,8 @@
 
 - (void)joystickDidMove:(Joystick *)joystick withDeltaPosition:(CGPoint)position
 {
-    NSLog(@"joystickDidMove %f", position.x);
-    
+    //NSLog(@"joystickDidMove %f", position.x);
+    self.boat.steering = position;
     
 }
 

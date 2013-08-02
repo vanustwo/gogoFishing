@@ -26,7 +26,7 @@
 @property (nonatomic, assign) BOOL                      onTouch;
 @property (nonatomic, strong) id <GameButtonDelegate>   delegate;
 
-- (id)initAtPosition:(CGPoint)position;
+- (id)initAtPosition:(CGPoint)position withLabel:(NSString*)label;
 - (BOOL)touchBegan:(UITouch*)touch withTouchPosition:(CGPoint)touchPosition;
 - (void)touchMove:(UITouch*)touch withTouchPosition:(CGPoint)touchPosition;
 - (void)touchEnd:(UITouch*)touch withTouchPosition:(CGPoint)touchPosition;

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		212144B217AC001B00C34059 /* ScreenUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 212144B117AC001B00C34059 /* ScreenUtil.m */; };
 		2145EDC317AA5E7D0087A388 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2145EDC217AA5E7D0087A388 /* Foundation.framework */; };
 		2145EDC517AA5E7D0087A388 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2145EDC417AA5E7D0087A388 /* CoreGraphics.framework */; };
 		2145EDC717AA5E7D0087A388 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2145EDC617AA5E7D0087A388 /* UIKit.framework */; };
@@ -59,6 +60,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		212144B017AC001B00C34059 /* ScreenUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenUtil.h; sourceTree = "<group>"; };
+		212144B117AC001B00C34059 /* ScreenUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenUtil.m; sourceTree = "<group>"; };
 		2145EDBF17AA5E7D0087A388 /* gogofishing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gogofishing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2145EDC217AA5E7D0087A388 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2145EDC417AA5E7D0087A388 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -239,6 +242,8 @@
 				2145EE3C17AA76AA0087A388 /* Player.m */,
 				2145EE3F17AAA19D0087A388 /* GameButton.h */,
 				2145EE4017AAA19D0087A388 /* GameButton.m */,
+				212144B017AC001B00C34059 /* ScreenUtil.h */,
+				212144B117AC001B00C34059 /* ScreenUtil.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -378,6 +383,7 @@
 			files = (
 				2145EE1D17AA60DA0087A388 /* Boat.m in Sources */,
 				2145EE3917AA74660087A388 /* Joystick.m in Sources */,
+				212144B217AC001B00C34059 /* ScreenUtil.m in Sources */,
 				2145EE1517AA5F0C0087A388 /* MouseJoint.m in Sources */,
 				2145EE3D17AA76AA0087A388 /* Player.m in Sources */,
 				2145EE1417AA5F0C0087A388 /* CGPointExtension.m in Sources */,

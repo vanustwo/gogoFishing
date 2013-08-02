@@ -19,5 +19,7 @@
 
 + (ShapeNode*)addBallShapeNodeWithRadius:(CGFloat)radius withPhysicBody:(BOOL)usePhysics;
 + (ShapeNode*)addBoxShapeNodeWithSize:(CGSize)size withPhysicBody:(BOOL)usePhysics;
++ (ShapeNode*)addPolygonShapeNodeWithSize:(CGSize)size withPhysicBody:(BOOL)usePhysics;
+
 
 @end

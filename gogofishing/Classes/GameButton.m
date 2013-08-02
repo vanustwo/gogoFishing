@@ -12,22 +12,24 @@
 
 @implementation GameButton
 
-- (id)initAtPosition:(CGPoint)position
+- (id)initAtPosition:(CGPoint)position withLabel:(NSString*)label
 {
     if( self=[super init] )
     {
         self.position = position;
-        [self createButtonAtPosition];
+        [self createButtonAtPositionWithLabel:label];
     }
     
     return self;
     
 }
 
-- (void)createButtonAtPosition
+- (void)createButtonAtPositionWithLabel:(NSString*)texts
 {
     ShapeNode *shape = [[ShapeNode alloc] init];
     CGMutablePathRef path = CGPathCreateMutable();
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
     
     CGPathAddArc(path, NULL, 0,0, GAME_BUTTON_RADIUS, 0, M_PI*2, YES);
     shape.path = path;
@@ -45,7 +47,7 @@
     [label setVerticalAlignmentMode:SKLabelVerticalAlignmentModeCenter];
     [label setFontSize:20];
     [label setFontColor:[SKColor blackColor]];
-    [label setText:@"A"];
+    [label setText:texts];
     [self addChild:label];
     
     

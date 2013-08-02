@@ -38,7 +38,7 @@
     SKLabelNode *label = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     label.text = @"Go Fishing";
     label.fontSize = 20;
-    label.position = CGPointMake([self NToVP_X:0.5f], [self NToVP_Y:0.95f]);
+    label.position = CGPointMake( NToVP_X(0.5f), NToVP_Y(0.95f));
     [self addChild:label];
     
 }
@@ -58,15 +58,15 @@
 
 - (void)initPlayers
 {
-    player1 = [[Player alloc] initPlayerAtPosition:[self screenCenterPoint] withView:self];
+    player1 = [[Player alloc] initPlayerAtPosition:screenCenterPoint() withView:self];
     
-    joystick1 = [[Joystick alloc] initAtPosition:ccp([self NToVP_XF:0.5f], [self NToVP_YF:0.2f])];
+    joystick1 = [[Joystick alloc] initAtPosition:ccp( NToVP_XF(0.5f), NToVP_YF(0.2f) ) ];
     player1.joystick = joystick1;
     player1.joystick.delegate = player1;
     [self addChild:joystick1];
     
 
-    gameButton1 = [[GameButton alloc] initAtPosition:ccp([self NToVP_XF:0.9f], [self NToVP_YF:0.2f])];
+    gameButton1 = [[GameButton alloc] initAtPosition:ccp( NToVP_XF(0.9f), NToVP_YF(0.2f)) withLabel:@"A"];
     gameButton1.delegate = self;
     [self addChild:gameButton1];
     

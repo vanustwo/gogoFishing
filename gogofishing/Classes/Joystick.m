@@ -78,7 +78,7 @@
         NSLog(@"Joystick touchBegan");
         
         CGFloat distance = ccpDistance(touchPosition, [self stickPosition]);
-        if( distance<JOYSTICK_RADIUS )
+        if( distance<(JOYSTICK_RADIUS) )
         {
             _onTouch = YES;
             _onDragged = NO;
@@ -136,6 +136,10 @@
     if( _onTouch && [_touch isEqual:touch])
     {
         [self resetStick];
+        if( [_delegate respondsToSelector:@selector(joystickDidMove:withDeltaPosition:)] )
+        {
+            [_delegate joystickDidMove:self withDeltaPosition:CGPointZero];
+        }
     }
 }
 
