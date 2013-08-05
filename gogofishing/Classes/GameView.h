@@ -25,22 +25,20 @@ typedef enum : uint32_t {
 typedef enum{
     GameState_Idle,
     GameState_Start,
-    GameState_PoseComplete,
     GameState_End,
 }GameState;
 
 
-@interface GameView : BaseView <GameButtonDelegate>
+@interface GameView : BaseView
 {
     GameState                       gameState;
     CFTimeInterval                  m_timer;
-    Boat*                           boat1;
-    Joystick*                       joystick1;
-    GameButton*                     gameButton1;
     Player*                         player1;
-    
+    Player*                         player2;
+    SKShapeNode*                    borderShapeNode;
 }
 
+@property(nonatomic, strong)NSMutableArray*     playersArray;
 
 @end
 

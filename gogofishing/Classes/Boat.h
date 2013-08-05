@@ -8,6 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "ShapeNode.h"
+#import "GameMacros.h"
 
 @class GameView;
 

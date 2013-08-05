@@ -14,30 +14,26 @@
 @implementation Player
 
 
-- (id)initPlayerAtPosition:(CGPoint)position withView:(GameView*)gameView
+- (id)initPlayerAtPosition:(CGPoint)position withView:(GameView*)gameView withSpriteName:(NSString*)spriteName
 {
     
     if( self=[super init] )
     {
         self.gameView = gameView;
-        [self createBoatAtPosition:position];
-        
-        
+        [self createBoatAtPosition:position withSpriteName:spriteName];
+
     }
     
     return self;
 }
 
-- (void)createBoatAtPosition:(CGPoint)position
+- (void)createBoatAtPosition:(CGPoint)position withSpriteName:(NSString*)spriteName
 {
-    _boat = [Boat spriteNodeWithImageNamed:@"redboat.png"];
+    _boat = [Boat spriteNodeWithImageNamed:spriteName];
     [_gameView addChild:_boat];
     
     [_boat createPhysicBodyWithGameView:_gameView];
     _boat.position = position;
-    
-    
-    
     
     power = 0;
     
@@ -56,6 +52,8 @@
     [_boat update:currentTime];
 }
 
+#pragma mark - Joystick movement
+
 - (void)joystickDidMove:(Joystick *)joystick withDeltaPosition:(CGPoint)position
 {
     //NSLog(@"joystickDidMove %f", position.x);
@@ -64,4 +62,20 @@
 }
 
 
+#pragma mark - Game Button delegate
+
+- (void)gameButtonOnPress:(GameButton*)gameButton
+{
+    NSLog(@"gameButtonOnPress %@", _boat.name);
+    [self doAcceleration:YES];
+}
+
+- (void)gameButtonOnRelease:(GameButton*)gameButton
+{
+    NSLog(@"gameButtonOnRelease %@", _boat.name);
+    [self doAcceleration:NO];
+}
+
 @end
+
+

@@ -9,9 +9,9 @@
 #import "Boat.h"
 #import "PhysicShapeBuilder.h"
 #import "GameView.h"
-#import "GameMacros.h"
 
-static const float MAX_BOAT_POWER = 15.5f;
+
+static const float MAX_BOAT_POWER = 10.5f;
 
 @interface Boat ()
 
@@ -29,7 +29,7 @@ static const float MAX_BOAT_POWER = 15.5f;
     self.physicsBody.collisionBitMask = GameColliderTypeBoat | GameColliderTypeWall;
     self.physicsBody.contactTestBitMask = GameColliderTypeBoat | GameColliderTypeWall;
     self.physicsBody.friction = 1.0f;
-
+    self.physicsBody.restitution = 0.1f;
     
     debugBody = [PhysicShapeBuilder addBoxShapeNodeWithSize:self.size withPhysicBody:YES];
     debugBody.physicsBody.dynamic = YES;
@@ -89,7 +89,7 @@ static const float MAX_BOAT_POWER = 15.5f;
     }
     else
     {
-        _power-=(MAX_BOAT_POWER * currentTime);
+        _power-=( (MAX_BOAT_POWER * 1.6f) * currentTime);
         _power = MAX(_power, 0);
         self.physicsBody.angularDamping = 0.6f;
         

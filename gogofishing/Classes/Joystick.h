@@ -8,6 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "CGPointExtension.h"
+#import "GameDefines.h"
 
 @class Joystick;
 
@@ -23,7 +24,7 @@
 }
 
 
-- (id)initAtPosition:(CGPoint)position;
+- (id)initAtPosition:(CGPoint)position joystickRadius:(CGFloat)joystickRadius joystickMoveRadius:(CGFloat)joystickMoveRadius;
 - (void)resetStick;
 - (void)update:(CFTimeInterval)currentTime;
 - (BOOL)touchBegan:(UITouch*)touch withTouchPosition:(CGPoint)touchPosition;
@@ -37,6 +38,10 @@
 @property (nonatomic, assign) BOOL     onDragged;
 @property (nonatomic, assign) CGPoint  touchOffset;
 @property (nonatomic, assign) CGPoint  deltaPosition;
+@property (nonatomic, assign) CGFloat  joystickRadius;
+@property (nonatomic, assign) CGFloat  joystickMoveRadius;
+@property (nonatomic, assign) Joystick_Position joystickPosition;
+
 @property (nonatomic, strong) id <JoystickDelegate> delegate;
 
 

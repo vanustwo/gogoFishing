@@ -12,11 +12,12 @@
 
 @implementation GameButton
 
-- (id)initAtPosition:(CGPoint)position withLabel:(NSString*)label
+- (id)initAtPosition:(CGPoint)position withLabel:(NSString*)label withRadius:(CGFloat)radius
 {
     if( self=[super init] )
     {
         self.position = position;
+        self.buttoRadius = radius;
         [self createButtonAtPositionWithLabel:label];
     }
     
@@ -28,10 +29,8 @@
 {
     ShapeNode *shape = [[ShapeNode alloc] init];
     CGMutablePathRef path = CGPathCreateMutable();
-    
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    
-    CGPathAddArc(path, NULL, 0,0, GAME_BUTTON_RADIUS, 0, M_PI*2, YES);
+
+    CGPathAddArc(path, NULL, 0,0, self.buttoRadius, 0, M_PI*2, YES);
     shape.path = path;
     shape.fillColor = [SKColor greenColor];
     shape.strokeColor = [SKColor greenColor];
@@ -61,7 +60,7 @@
     if( !_onTouch )
     {
         CGFloat distance = ccpDistance(touchPosition, self.position);
-        if( distance<GAME_BUTTON_RADIUS )
+        if( distance<self.buttoRadius )
         {
             _onTouch = YES;
             _touch = touch;

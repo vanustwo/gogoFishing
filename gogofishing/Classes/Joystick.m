@@ -19,14 +19,16 @@
 
 @implementation Joystick
 
-- (id)initAtPosition:(CGPoint)position
+- (id)initAtPosition:(CGPoint)position joystickRadius:(CGFloat)joystickRadius joystickMoveRadius:(CGFloat)joystickMoveRadius
 {
     if( self=[super init] )
     {
         
         self.position = position;
+        self.joystickRadius = joystickRadius;
+        self.joystickMoveRadius = joystickMoveRadius;
         [self createJoystickRange];
-        self.stick = [PhysicShapeBuilder addBallShapeNodeWithRadius:JOYSTICK_RADIUS withPhysicBody:NO];
+        self.stick = [PhysicShapeBuilder addBallShapeNodeWithRadius:joystickRadius withPhysicBody:NO];
         [self addChild:self.stick];
         
         
@@ -43,7 +45,7 @@
     ShapeNode *shape = [[ShapeNode alloc] init];
     CGMutablePathRef path = CGPathCreateMutable();
     
-    CGPathAddArc(path, NULL, 0,0, JOYSTICK_MOVE_RADIUS, 0, M_PI*2, YES);
+    CGPathAddArc(path, NULL, 0,0, self.joystickMoveRadius, 0, M_PI*2, YES);
     shape.path = path;
     shape.strokeColor = [SKColor lightGrayColor];
     shape.antialiased = YES;
@@ -75,10 +77,10 @@
 {
     if( !_onTouch )
     {
-        NSLog(@"Joystick touchBegan");
+        
         
         CGFloat distance = ccpDistance(touchPosition, [self stickPosition]);
-        if( distance<(JOYSTICK_RADIUS) )
+        if( distance<(self.joystickRadius) )
         {
             _onTouch = YES;
             _onDragged = NO;
@@ -108,21 +110,21 @@
         float touchAngle = ccpToAngle(stickOffset);
        
         
-        if( distance<JOYSTICK_MOVE_RADIUS )
+        if( distance<self.joystickMoveRadius )
         {
             self.stick.position = ccpSub(stickOffset, _touchOffset);
         }
         else
         {
             //snap it on the edge
-            CGPoint p = CGPointMake(self.position.x - (cosf(touchAngle) * JOYSTICK_MOVE_RADIUS), self.position.y - (sinf(touchAngle) * JOYSTICK_MOVE_RADIUS));
+            CGPoint p = CGPointMake(self.position.x - (cosf(touchAngle) * self.joystickMoveRadius), self.position.y - (sinf(touchAngle) * self.joystickMoveRadius));
             p = ccpSub(self.position, p);
             self.stick.position = ccpSub(p, _touchOffset);
             
         }
         
          _deltaPosition = ccpSub([self stickPosition], self.position);
-        _deltaPosition = ccpClamp(_deltaPosition, ccp(-JOYSTICK_MOVE_RADIUS, -JOYSTICK_MOVE_RADIUS), ccp(JOYSTICK_MOVE_RADIUS, JOYSTICK_MOVE_RADIUS));
+        _deltaPosition = ccpClamp(_deltaPosition, ccp(-self.joystickMoveRadius, -self.joystickMoveRadius), ccp(self.joystickMoveRadius, self.joystickMoveRadius));
         
         if( [_delegate respondsToSelector:@selector(joystickDidMove:withDeltaPosition:)] )
         {

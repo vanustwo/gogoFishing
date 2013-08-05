@@ -9,15 +9,10 @@
 #ifndef gogofishing_GameDefines_h
 #define gogofishing_GameDefines_h
 
-#define JOYSTICK_RADIUS             40.0f
-#define JOYSTICK_MOVE_RADIUS        100.0f
-#define GAME_BUTTON_RADIUS          20.0f
-
-
 typedef enum
 {
-    Joystick_Position_Top,
     Joystick_Position_Bottom,
+    Joystick_Position_Top,
 }Joystick_Position;
 
 
