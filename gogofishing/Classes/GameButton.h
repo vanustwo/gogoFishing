@@ -25,13 +25,13 @@
 @property (nonatomic, weak) UITouch*                    touch;
 @property (nonatomic, assign) BOOL                      onTouch;
 @property (nonatomic, strong) id <GameButtonDelegate>   delegate;
-@property (nonatomic, assign) CGFloat                   buttoRadius;
+@property (nonatomic, assign) CGFloat                   buttonRadius;
+@property (nonatomic, assign) GameButtonType            gameButtonType;
 
 
 - (id)initAtPosition:(CGPoint)position withLabel:(NSString*)label withRadius:(CGFloat)radius;
 - (BOOL)touchBegan:(UITouch*)touch withTouchPosition:(CGPoint)touchPosition;
 - (void)touchMove:(UITouch*)touch withTouchPosition:(CGPoint)touchPosition;
 - (void)touchEnd:(UITouch*)touch withTouchPosition:(CGPoint)touchPosition;
-
 
 @end

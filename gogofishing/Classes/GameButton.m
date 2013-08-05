@@ -17,7 +17,7 @@
     if( self=[super init] )
     {
         self.position = position;
-        self.buttoRadius = radius;
+        self.buttonRadius = radius;
         [self createButtonAtPositionWithLabel:label];
     }
     
@@ -30,7 +30,7 @@
     ShapeNode *shape = [[ShapeNode alloc] init];
     CGMutablePathRef path = CGPathCreateMutable();
 
-    CGPathAddArc(path, NULL, 0,0, self.buttoRadius, 0, M_PI*2, YES);
+    CGPathAddArc(path, NULL, 0,0, self.buttonRadius, 0, M_PI*2, YES);
     shape.path = path;
     shape.fillColor = [SKColor greenColor];
     shape.strokeColor = [SKColor greenColor];
@@ -60,11 +60,10 @@
     if( !_onTouch )
     {
         CGFloat distance = ccpDistance(touchPosition, self.position);
-        if( distance<self.buttoRadius )
+        if( distance<self.buttonRadius*3 )
         {
             _onTouch = YES;
             _touch = touch;
-            NSLog(@"_touchOffset");
             
             if( [_delegate respondsToSelector:@selector(gameButtonOnPress:)] )
             {

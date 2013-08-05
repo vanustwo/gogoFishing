@@ -241,6 +241,8 @@ CGFloat ccpToAngle(const CGPoint v);
  */
 CGPoint ccpClamp(CGPoint p, CGPoint from, CGPoint to);
 
+float clampf(float value, float min_inclusive, float max_inclusive);
+    
 /** Quickly convert CGSize to a CGPoint
  @since v0.99.1
  */

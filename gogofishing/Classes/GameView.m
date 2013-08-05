@@ -85,17 +85,23 @@
     self.playersArray = [[NSMutableArray alloc] initWithCapacity:2];
     
     CGFloat player1JoystickY = borderShapeNode.position.y /2;
+    CGFloat joyStickRadius = NToVP_X(0.044f);
+    CGFloat joyStickMoveRadius = NToVP_X(0.073f);
+    CGFloat controlsPadding = NToVP_X(0.07f);
+    CGFloat buttonRadius = NToVP_X(0.045f);
+    
     
     //Player 1
     player1 = [[Player alloc] initPlayerAtPosition:ccp( NToVP_XF(0.5f), borderShapeNode.position.y + NToVP_YF(0.1f)) withView:self withSpriteName:@"redboat.png"];
-    Joystick* joystick1 = [[Joystick alloc] initAtPosition:ccp( NToVP_XF(0.5f), player1JoystickY ) joystickRadius:NToVP_X(0.03f) joystickMoveRadius:NToVP_X(0.06f) ];
+    
+    Joystick* joystick1 = [[Joystick alloc] initAtPosition:ccp( joyStickMoveRadius + controlsPadding, player1JoystickY ) joystickRadius:joyStickRadius joystickMoveRadius:joyStickMoveRadius ];
     joystick1.joystickPosition = Joystick_Position_Bottom;
     player1.joystick = joystick1;
     player1.joystick.delegate = player1;
     player1.boat.name = @"Player 1";
     [self addChild:joystick1];
 
-    GameButton* gameButton1 = [[GameButton alloc] initAtPosition:ccp( joystick1.position.x + joystick1.joystickMoveRadius + NToVP_X(0.1f), player1JoystickY) withLabel:@"A" withRadius:NToVP_X(0.03f)];
+    GameButton* gameButton1 = [[GameButton alloc] initAtPosition:ccp( NToVP_X(1.0f) - (buttonRadius + controlsPadding) , player1JoystickY) withLabel:@"A" withRadius:buttonRadius];
     player1.gameButtonA = gameButton1;
     player1.gameButtonA.delegate = player1;
     [self addChild:gameButton1];
@@ -108,14 +114,15 @@
     player2.boat.zRotation = CC_DEGREES_TO_RADIANS(-180.f);
     player2.boat.name = @"Player 2";
     
-    Joystick* joystick2 = [[Joystick alloc] initAtPosition:ccp( NToVP_XF(0.5f), player2JoystickY ) joystickRadius:NToVP_X(0.03f) joystickMoveRadius:NToVP_X(0.06f) ];
+    Joystick* joystick2 = [[Joystick alloc] initAtPosition:ccp( NToVP_XF(1.0f) - (joyStickMoveRadius + controlsPadding), player2JoystickY ) joystickRadius:joyStickRadius joystickMoveRadius:joyStickMoveRadius ];
     joystick2.joystickPosition = Joystick_Position_Top;
     
     player2.joystick = joystick2;
     player2.joystick.delegate = player2;
     [self addChild:joystick2];
 
-    GameButton* gameButton2 = [[GameButton alloc] initAtPosition:ccp( joystick2.position.x + joystick2.joystickMoveRadius + NToVP_X(0.1f), player2JoystickY) withLabel:@"A" withRadius:NToVP_X(0.03f)];
+    GameButton* gameButton2 = [[GameButton alloc] initAtPosition:ccp( (buttonRadius + controlsPadding), player2JoystickY) withLabel:@"A" withRadius:buttonRadius];
+    gameButton2.zRotation = CC_DEGREES_TO_RADIANS(-180.f);
     player2.gameButtonA = gameButton2;
     player2.gameButtonA.delegate = player2;
     [self addChild:gameButton2];
@@ -202,6 +209,11 @@
         }
         
     }
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self touchesEnded:touches withEvent:event];
 }
 
 #pragma mark - Update

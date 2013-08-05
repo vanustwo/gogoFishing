@@ -50,9 +50,7 @@
     shape.strokeColor = [SKColor lightGrayColor];
     shape.antialiased = YES;
     shape.lineWidth = 1.0f;
-    
     CGPathRelease(path);
-    
     [self addChild:shape];
     
 

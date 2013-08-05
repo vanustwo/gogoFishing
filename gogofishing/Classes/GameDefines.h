@@ -9,11 +9,20 @@
 #ifndef gogofishing_GameDefines_h
 #define gogofishing_GameDefines_h
 
+#define DEBUG_DRAW      0
+
+
 typedef enum
 {
     Joystick_Position_Bottom,
     Joystick_Position_Top,
 }Joystick_Position;
+
+typedef enum
+{
+    GameButtonType_Accelerate,
+    GameButtonType_Brake,
+}GameButtonType;
 
 
 #endif

@@ -11,11 +11,13 @@
 #import "GameView.h"
 
 
-static const float MAX_BOAT_POWER = 10.5f;
+static const float MAX_BOAT_POWER = 80.5f;
 
 @interface Boat ()
 
 @property(nonatomic, assign)CGFloat             power;
+@property(nonatomic, assign)CGFloat             torque;
+
 
 @end
 
@@ -29,16 +31,19 @@ static const float MAX_BOAT_POWER = 10.5f;
     self.physicsBody.collisionBitMask = GameColliderTypeBoat | GameColliderTypeWall;
     self.physicsBody.contactTestBitMask = GameColliderTypeBoat | GameColliderTypeWall;
     self.physicsBody.friction = 1.0f;
-    self.physicsBody.restitution = 0.1f;
+    self.physicsBody.restitution = 0.09f;
     
+#if DEBUG_DRAW==1
     debugBody = [PhysicShapeBuilder addBoxShapeNodeWithSize:self.size withPhysicBody:YES];
     debugBody.physicsBody.dynamic = YES;
     debugBody.physicsBody.categoryBitMask = GameColliderTypeBoat;
     debugBody.physicsBody.collisionBitMask = 0;
     debugBody.physicsBody.contactTestBitMask = 0;
     
-    
     [self addChild:debugBody];
+
+#endif
+
     
     
     NSLog(@" self.zRotation %f", self.zRotation);
@@ -48,11 +53,13 @@ static const float MAX_BOAT_POWER = 10.5f;
     CGSize smallBox = CGSizeMake(self.size.width*0.2f, self.size.width*0.2f);
     self.thrusterBody = [PhysicShapeBuilder addBoxShapeNodeWithSize:smallBox withPhysicBody:NO];
     self.thrusterBody.position = CGPointMake(0, -self.size.height/2);
+    self.thrusterBody.hidden = YES;
+    
     [self addChild:self.thrusterBody];
-
-    self.zRotation = CC_DEGREES_TO_RADIANS(-0.f);
+    
     self.applyAcceleration = NO;
     self.power = 0;
+    self.torque = 0;
     
 }
 
@@ -60,13 +67,17 @@ static const float MAX_BOAT_POWER = 10.5f;
 {
 
    // NSLog(@"Power %f", _power);
+    
+
 
     //CGPoint steeringDir = CGPointZero;
     
     if( self.applyAcceleration )
     {
+        
         _power+=(MAX_BOAT_POWER * currentTime);
-        _power = MIN(_power, 10.0f);
+        _power = MIN(_power, 18.0f);
+        
         self.physicsBody.linearDamping = 0.1f;
         
         CGPoint vector = ccpForAngle(-self.zRotation);
@@ -77,10 +88,26 @@ static const float MAX_BOAT_POWER = 10.5f;
         
         //self.steering = ccp(25.0f, 0);
         
-        CGFloat torque = (self.steering.x * 0.001f) * currentTime;
+        if(self.steering.x!=0)
+        {
+            _torque+= (self.steering.x * 0.0029f) * currentTime;
+            self.physicsBody.angularDamping = 0.2f;
+        }
+        else
+        {
+            _torque = 0;
+            self.physicsBody.angularDamping = 0.92f;
+        }
         
-        //self.physicsBody.angularDamping = 0.2f;
-        [self.physicsBody applyTorque:-torque];
+        if(_torque!=0)
+        {
+            _torque = clampf(_torque, -0.002f, 0.002f);
+            [self.physicsBody applyTorque:-_torque];
+        }
+        //NSLog(@"_torque %f", _torque);
+        
+        
+        
         
         CGPoint forcePosition = [self.thrusterBody convertPoint:self.thrusterBody.position toNode:self.parent];
         //NSLog(@"thrusterBody %f %f", a.x, a.y);
@@ -89,17 +116,31 @@ static const float MAX_BOAT_POWER = 10.5f;
     }
     else
     {
-        _power-=( (MAX_BOAT_POWER * 1.6f) * currentTime);
+        _power-=( (MAX_BOAT_POWER * 0.8f) * currentTime);
         _power = MAX(_power, 0);
-        self.physicsBody.angularDamping = 0.6f;
+
+        _torque = (self.steering.x * 0.006f) * _power;
+        
+        if(_power<=0.04f)
+        {
+            _torque = 0;
+        }
+        
+        
+        if(_torque!=0)
+        {
+            _torque = clampf(_torque, -0.002f, 0.002f);
+            [self.physicsBody applyTorque:-_torque];
+        }
+        
+        //NSLog(@"_torque %f %f", _torque, _power);
+        
+        
+        self.physicsBody.angularDamping = 0.93f;
         
         self.physicsBody.linearDamping = 1.0f - (_power/MAX_BOAT_POWER);
     }
-
-    //CGPoint newVel = ccpAdd(self.physicsBody.velocity, steeringDir);
-    
-   // self.physicsBody.velocity = newVel;
-    
+  
    // NSLog(@"angularVelocity %f",  self.physicsBody.angularVelocity);
    // NSLog(@"Velocity %f %f", self.physicsBody.velocity.x, self.physicsBody.velocity.y);
 

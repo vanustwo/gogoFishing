@@ -56,8 +56,16 @@
 
 - (void)joystickDidMove:(Joystick *)joystick withDeltaPosition:(CGPoint)position
 {
-    //NSLog(@"joystickDidMove %f", position.x);
-    self.boat.steering = position;
+ //   NSLog(@"joystickDidMove %d %f", joystick.joystickPosition , position.x);
+    
+    CGPoint direction = position;
+    
+    if( joystick.joystickPosition==Joystick_Position_Top )
+    {
+        direction.x = -direction.x;
+    }
+    
+    self.boat.steering = direction;
     
 }
 
