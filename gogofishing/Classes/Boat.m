@@ -61,6 +61,7 @@ static const float MAX_BOAT_POWER = 80.5f;
 
     CGPathRelease(path);
     
+    
     NSLog(@" self.zRotation %f", self.zRotation);
     
     facingDirection = CGPointMake(0, 1);
@@ -68,7 +69,7 @@ static const float MAX_BOAT_POWER = 80.5f;
     CGSize smallBox = CGSizeMake(self.size.width*0.2f, self.size.width*0.2f);
     self.thrusterBody = [PhysicShapeBuilder addBoxShapeNodeWithSize:smallBox withPhysicBody:NO];
     self.thrusterBody.position = CGPointMake(0, -self.size.height/2);
-    self.thrusterBody.hidden = NO;
+    self.thrusterBody.hidden = YES;
     
     [self addChild:self.thrusterBody];
     
@@ -76,6 +77,16 @@ static const float MAX_BOAT_POWER = 80.5f;
     self.power = 0;
     self.torque = 0;
     
+}
+
+- (void)reset
+{
+    self.applyAcceleration = NO;
+    self.power = 0;
+    self.torque = 0;
+    self.physicsBody.velocity = CGPointZero;
+    self.physicsBody.angularVelocity = 0;
+
 }
 
 - (void)update:(CFTimeInterval)currentTime
@@ -102,6 +113,10 @@ static const float MAX_BOAT_POWER = 80.5f;
         //NSLog(@"forceVector %f %f", newForceVector.x, newForceVector.y);
         
         //self.steering = ccp(25.0f, 0);
+
+        
+        
+        
         
         if(self.steering.x!=0)
         {

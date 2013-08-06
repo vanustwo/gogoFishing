@@ -9,7 +9,7 @@
 #ifndef gogofishing_GameDefines_h
 #define gogofishing_GameDefines_h
 
-#define DEBUG_DRAW      1
+#define DEBUG_DRAW      0
 
 
 typedef enum

@@ -30,6 +30,7 @@
 @property(nonatomic,strong)GameScene*    gameView;
 @property(nonatomic,weak)Joystick*      joystick;
 @property(nonatomic,weak)GameButton*    gameButtonA;
-
+@property(nonatomic,weak)GameButton*    gameButtonB;
+@property(nonatomic,assign)int          score;
 
 @end

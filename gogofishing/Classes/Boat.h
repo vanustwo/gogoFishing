@@ -27,6 +27,6 @@
 
 - (void)createPhysicBodyWithGameView:(GameScene*)gameView;
 - (void)update:(CFTimeInterval)currentTime;
-
+- (void)reset;
 
 @end

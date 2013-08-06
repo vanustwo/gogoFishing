@@ -20,6 +20,7 @@
     if( self=[super init] )
     {
         self.gameView = gameView;
+        self.score = 0;
         [self createBoatAtPosition:position withSpriteName:spriteName];
 
     }
@@ -41,10 +42,7 @@
 
 - (void)doAcceleration:(BOOL)applyGas
 {
-
     self.boat.applyAcceleration = applyGas;
-    
-    
 }
 
 - (void)update:(CFTimeInterval)currentTime

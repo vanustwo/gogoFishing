@@ -23,9 +23,12 @@
         /* Setup your scene here */
         
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
-        [self initLabels];
+        
         [self initPhysicsWorld];
         [self initPlayers];
+        [self initLabels];
+        [self initFishes];
+        [self initRocks];
         [self resetGame];
         
 
@@ -35,11 +38,23 @@
 
 - (void)initLabels
 {
-    SKLabelNode *label = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-    label.text = @"Go Fishing";
-    label.fontSize = 20;
-    label.position = CGPointMake( NToVP_X(0.5f), NToVP_Y(0.95f));
-    [self addChild:label];
+    CGFloat player1JoystickY = borderShapeNode.position.y /2;
+    
+    self.player1ScoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Arial"];
+    self.player1ScoreLabel.text = @"Player 1";
+    self.player1ScoreLabel.fontSize = 30;
+    self.player1ScoreLabel.position = CGPointMake( NToVP_X(0.5f), player1JoystickY);
+    [self addChild:self.player1ScoreLabel];
+    
+    self.player2ScoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Arial"];
+    self.player2ScoreLabel.text = @"Player 1";
+    self.player2ScoreLabel.fontSize = 30;
+    self.player2ScoreLabel.position = CGPointMake( NToVP_X(0.5f), NToVP_Y(1.0f) - player1JoystickY );
+    [self addChild:self.player2ScoreLabel];
+    self.player2ScoreLabel.yScale = -1;
+    self.player2ScoreLabel.xScale = -1;
+    
+    [self updateScoreLabels];
     
 }
 
@@ -102,6 +117,7 @@
     [self addChild:joystick1];
 
     GameButton* gameButton1 = [[GameButton alloc] initAtPosition:ccp( NToVP_X(1.0f) - (buttonRadius + controlsPadding) , player1JoystickY) withLabel:@"A" withRadius:buttonRadius];
+    gameButton1.gameButtonType = GameButtonType_Accelerate;
     player1.gameButtonA = gameButton1;
     player1.gameButtonA.delegate = player1;
     [self addChild:gameButton1];
@@ -122,6 +138,7 @@
     [self addChild:joystick2];
 
     GameButton* gameButton2 = [[GameButton alloc] initAtPosition:ccp( (buttonRadius + controlsPadding), player2JoystickY) withLabel:@"A" withRadius:buttonRadius];
+    gameButton2.gameButtonType = GameButtonType_Accelerate;
     gameButton2.zRotation = CC_DEGREES_TO_RADIANS(-180.f);
     player2.gameButtonA = gameButton2;
     player2.gameButtonA.delegate = player2;
@@ -130,12 +147,147 @@
     [self.playersArray addObject:player2];
 }
 
+
+
+- (void)initFishes
+{
+    
+    if (self.fishArray==nil) {
+        self.fishArray = [[NSMutableArray alloc] initWithCapacity:3];
+    }
+    
+    if( self.fishSpawnPointsArray==nil )
+    {
+        self.fishSpawnPointsArray = [[NSMutableArray alloc] initWithCapacity:3];
+    }
+    
+    for (int i =0; i< 5; i++) {
+        
+        SKSpriteNode* fishSprite = [SKSpriteNode spriteNodeWithImageNamed:@"greenfish.png"];
+        fishSprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:fishSprite.size];
+        fishSprite.physicsBody.categoryBitMask = GameColliderTypeFish;
+        fishSprite.physicsBody.collisionBitMask = GameColliderTypeBoat;
+        fishSprite.physicsBody.contactTestBitMask = GameColliderTypeBoat;
+        fishSprite.physicsBody.dynamic = NO;
+        fishSprite.position = ccp(-100, -100);
+        fishSprite.hidden = YES;
+        [self addChild:fishSprite];
+        
+        [self.fishArray addObject:fishSprite];
+
+    }
+    
+    
+    [_fishSpawnPointsArray addObject:[NSValue valueWithCGPoint:screenCenterPoint()]];
+    [_fishSpawnPointsArray addObject:[NSValue valueWithCGPoint:ccp(620, 461)]];
+    [_fishSpawnPointsArray addObject:[NSValue valueWithCGPoint:ccp(558, 284)]];
+    
+    [_fishSpawnPointsArray addObject:[NSValue valueWithCGPoint:ccp(115, 609)]];
+    [_fishSpawnPointsArray addObject:[NSValue valueWithCGPoint:ccp(102, 774)]];
+    
+    [_fishSpawnPointsArray addObject:[NSValue valueWithCGPoint:ccp(167, 486)]];
+
+    
+}
+
+- (void)initRocks
+{
+    [self createRockAtLocation:ccp(NToVP_X(0.3f), NToVP_Y(0.3f)) scale:1.0f rotation:0];
+    [self createRockAtLocation:ccp(NToVP_X(0.8f), NToVP_Y(0.7f)) scale:0.5f rotation:CC_DEGREES_TO_RADIANS(-90)];
+    [self createRockAtLocation:screenCenterPoint() scale:0.5f rotation:CC_DEGREES_TO_RADIANS(-40)];
+}
+
+- (void)createRockAtLocation:(CGPoint)location scale:(float)scale rotation:(float)rotation
+{
+    
+    SKSpriteNode* rock = [SKSpriteNode spriteNodeWithImageNamed:@"rock.png"];
+    rock.position = location;
+    [rock setScale:scale];
+    
+    SKSpriteNode* rock2 = [SKSpriteNode spriteNodeWithImageNamed:@"rock.png"];
+    rock2.position = location;
+    [rock2 setScale:scale];
+    
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathMoveToPoint(path, NULL, -107.000 * scale, -57.000* scale);
+    CGPathAddLineToPoint(path, NULL, -23.000* scale, -45.000* scale);
+    CGPathAddLineToPoint(path, NULL, 84.000* scale, 29.000* scale);
+    CGPathAddLineToPoint(path, NULL, 4.000* scale, 67.000* scale);
+    CGPathAddLineToPoint(path, NULL, -96.000* scale, 56.000* scale);
+    CGPathCloseSubpath(path);
+    
+    CGMutablePathRef path2 = CGPathCreateMutable();
+    CGPathMoveToPoint(path2, NULL, 102.000* scale, -65.000* scale);
+    CGPathAddLineToPoint(path2, NULL, 106.000* scale, -10.000* scale);
+    CGPathAddLineToPoint(path2, NULL, 84.000* scale, 29.000* scale);
+    CGPathAddLineToPoint(path2, NULL, -23.000* scale, -45.000* scale);
+    CGPathAddLineToPoint(path2, NULL, 36.000* scale, -68.000* scale);
+    CGPathCloseSubpath(path2);
+    
+    rock.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromPath:path];
+    rock.physicsBody.dynamic = NO;
+    rock.physicsBody.categoryBitMask = GameColliderTypeWall;
+    rock.physicsBody.collisionBitMask = GameColliderTypeBoat;
+    rock.physicsBody.contactTestBitMask = GameColliderTypeBoat;
+    
+    rock2.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromPath:path2];
+    rock2.physicsBody.dynamic = NO;
+    rock2.physicsBody.categoryBitMask = GameColliderTypeWall;
+    rock2.physicsBody.collisionBitMask = GameColliderTypeBoat;
+    rock2.physicsBody.contactTestBitMask = GameColliderTypeBoat;
+    
+    [self addChild:rock];
+    [self addChild:rock2];
+    
+    rock.zRotation = rotation;
+    rock2.zRotation = rotation;
+    
+    
+    /*
+    SKShapeNode* shapeNode = [[SKShapeNode alloc] init];
+    shapeNode.path = path;
+    shapeNode.strokeColor = [SKColor redColor];
+    shapeNode.lineWidth = 0.4f;
+    shapeNode.antialiased = YES;
+    shapeNode.position = location;
+    [self addChild:shapeNode];
+    
+    SKShapeNode* shapeNode2 = [[SKShapeNode alloc] init];
+    shapeNode2.path = path2;
+    shapeNode2.strokeColor = [SKColor redColor];
+    shapeNode2.lineWidth = 0.4f;
+    shapeNode2.antialiased = YES;
+    shapeNode2.position = location;
+    [self addChild:shapeNode2];*/
+    
+    CGPathRelease(path);
+    CGPathRelease(path2);
+}
+
+#pragma mark - Reset Game
+
 - (void)resetGame
 {
     gameState = GameState_Start;
     
+    //reset player
+    player1.boat.position = ccp( NToVP_XF(0.5f), borderShapeNode.position.y + NToVP_YF(0.1f));
+    player1.boat.zRotation = 0;
+    player1.score = 0;
+    [player1.boat reset];
     
+    player2.boat.position = ccp( NToVP_XF(0.5f), NToVP_YF(1.0f) - (borderShapeNode.position.y + NToVP_YF(0.1f)) );
+    player2.boat.zRotation = CC_DEGREES_TO_RADIANS(-180.f);
+    player2.score = 0;
+    [player2.boat reset];
     
+    //reset fishes
+    for (SKSpriteNode* fish in self.fishArray) {
+        fish.hidden = YES;
+    }
+    
+    [self spawnFish];
+    [self updateScoreLabels];
 }
 
 #pragma mark - Touch Handler
@@ -144,7 +296,7 @@
 
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
-     
+        NSLog(@"location %f %f", location.x, location.y);
         
         for( Player* player in self.playersArray )
         {
@@ -179,7 +331,7 @@
             }
         }
         
-        //NSLog(@"location %f %f", location.x, location.y);
+        
     }
 }
 
@@ -259,12 +411,76 @@
 
 - (void)didBeginContact:(SKPhysicsContact *)contact
 {
-    //NSLog(@"didBeginContact");
+//    NSLog(@"didBeginContact");
+    
+    if( contact.bodyA && contact.bodyB && !contact.bodyA.node.hidden && !contact.bodyB.node.hidden)
+    {
+        if( contact.bodyA.categoryBitMask==GameColliderTypeBoat && contact.bodyB.categoryBitMask==GameColliderTypeFish )
+        {
+            [self playerCollidedWithFish:contact.bodyA withFish:contact.bodyB];
+        }
+        else if( contact.bodyB.categoryBitMask==GameColliderTypeBoat && contact.bodyA.categoryBitMask==GameColliderTypeFish )
+        {
+            [self playerCollidedWithFish:contact.bodyB withFish:contact.bodyA];
+        }
+    }
+    
 }
 
 - (void)didEndContact:(SKPhysicsContact *)contact
 {
    // NSLog(@"didEndContact");
 }
+
+#pragma mark - Score Label
+
+- (void)updateScoreLabels
+{
+    self.player1ScoreLabel.text = [NSString stringWithFormat:@"Player 1: %d", player1.score];
+    self.player2ScoreLabel.text = [NSString stringWithFormat:@"Player 2: %d", player2.score];
+
+}
+
+#pragma mark - Fish
+
+- (void)spawnFish
+{
+    NSUInteger idx = CCRANDOM_0_1() * _fishSpawnPointsArray.count;
+    NSValue* point = [_fishSpawnPointsArray objectAtIndex:idx];
+    [self spawnFishAtLocation:[point CGPointValue]];
+}
+
+- (void)spawnFishAtLocation:(CGPoint)location
+{
+    for (SKSpriteNode* fish in self.fishArray) {
+        
+        if(fish.hidden)
+        {
+            fish.hidden = NO;
+            fish.position = ccpAdd(location, ccp(CCRANDOM_MINUS1_1()*NToVP_X(0.1f), CCRANDOM_MINUS1_1()*NToVP_X(0.1f)));
+            
+            
+            break;
+        }
+    }
+}
+
+- (void)playerCollidedWithFish:(SKPhysicsBody*)player withFish:(SKPhysicsBody*)fish
+{
+    if([player isEqual:player1.boat.physicsBody])
+    {
+        player1.score+=10;
+    }
+    else if([player isEqual:player2.boat.physicsBody])
+    {
+        player2.score+=10;
+    }
+    
+    fish.node.hidden = YES;
+    
+    [self spawnFish];
+    [self updateScoreLabels];
+}
+
 
 @end

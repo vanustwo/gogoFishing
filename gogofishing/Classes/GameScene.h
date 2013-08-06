@@ -20,6 +20,7 @@
 typedef enum : uint32_t {
     GameColliderTypeWall            = 1 << 0,
     GameColliderTypeBoat            = 1 << 1,
+    GameColliderTypeFish            = 1 << 2,
 } GameColliderType;
 
 typedef enum{
@@ -36,9 +37,17 @@ typedef enum{
     Player*                         player1;
     Player*                         player2;
     SKShapeNode*                    borderShapeNode;
+    
 }
 
 @property(nonatomic, strong)NSMutableArray*     playersArray;
+@property(nonatomic, strong)NSMutableArray*     fishArray;
+@property(nonatomic, strong)SKLabelNode*        player1ScoreLabel;
+@property(nonatomic, strong)SKLabelNode*        player2ScoreLabel;
+@property(nonatomic, strong)NSMutableArray*     fishSpawnPointsArray;
+
+- (void)resetGame;
+
 
 @end
 

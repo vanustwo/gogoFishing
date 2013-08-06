@@ -59,6 +59,7 @@
 - (IBAction)resetGame:(id)sender {
     NSLog(@"resetGame");
     
+    [self.gameScene resetGame];
     
 }
 
