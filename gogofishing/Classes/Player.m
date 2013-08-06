@@ -73,6 +73,17 @@
 - (void)gameButtonOnPress:(GameButton*)gameButton
 {
     NSLog(@"gameButtonOnPress %@", _boat.name);
+    
+    if(gameButton.gameButtonType==GameButtonType_Accelerate)
+    {
+        self.boat.goForward = YES;
+    }
+    else
+    {
+        self.boat.goForward = NO;
+    }
+    
+    
     [self doAcceleration:YES];
 }
 

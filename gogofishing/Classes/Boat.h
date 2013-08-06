@@ -22,6 +22,7 @@
 @property(nonatomic, assign)CGPoint     boatThrustPoint;
 @property(nonatomic, strong)SKNode*     thrusterBody;
 @property(nonatomic, assign)BOOL        applyAcceleration;
+@property(nonatomic, assign)BOOL        goForward;
 @property(nonatomic, assign)CGPoint     steering;
 
 

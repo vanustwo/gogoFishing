@@ -11,7 +11,7 @@
 #import "GameScene.h"
 
 
-static const float MAX_BOAT_POWER = 80.5f;
+static const float MAX_BOAT_POWER = 60.5f;
 
 @interface Boat ()
 
@@ -46,6 +46,7 @@ static const float MAX_BOAT_POWER = 80.5f;
     self.physicsBody.friction = 1.0f;
     self.physicsBody.restitution = 0.09f;
     
+    self.physicsBody.mass = self.physicsBody.mass * 2.0f;
 
     
 #if DEBUG_DRAW==1
@@ -102,14 +103,14 @@ static const float MAX_BOAT_POWER = 80.5f;
     {
         
         _power+=(MAX_BOAT_POWER * currentTime);
-        _power = MIN(_power, 18.0f);
+        _power = MIN(_power, 8.0f);
         
-        self.physicsBody.linearDamping = 0.1f;
+        self.physicsBody.linearDamping = 0.4f;
         
         CGPoint vector = ccpForAngle(-self.zRotation);
         
         CGPoint forceVector = ccpMult(vector, _power);
-        CGPoint newForceVector = ccp(forceVector.y, forceVector.x);
+        CGPoint newForceVector = ccp( self.goForward ? forceVector.y : -forceVector.y, self.goForward ? forceVector.x : -forceVector.x);
         //NSLog(@"forceVector %f %f", newForceVector.x, newForceVector.y);
         
         //self.steering = ccp(25.0f, 0);
@@ -120,32 +121,40 @@ static const float MAX_BOAT_POWER = 80.5f;
         
         if(self.steering.x!=0)
         {
-            _torque+= (self.steering.x * 0.0029f) * currentTime;
-            self.physicsBody.angularDamping = 0.2f;
+            _torque+= (self.steering.x * 0.0039f) * currentTime;
+            self.physicsBody.angularDamping = 0.7f;
         }
         else
         {
             _torque = 0;
-            self.physicsBody.angularDamping = 0.92f;
+            self.physicsBody.angularDamping = 1.0f;
         }
         
         if(_torque!=0)
         {
-            _torque = clampf(_torque, -0.002f, 0.002f);
-            [self.physicsBody applyTorque:-_torque];
+            float maxTorque = 0.0018f;
+            
+            _torque = clampf(_torque, -maxTorque, maxTorque);
+            
+            //if( _torque>maxTorque && _torque< maxTorque )
+            {
+                [self.physicsBody applyTorque:-(_torque * (self.physicsBody.mass * 9.12f) )];
+            }
         }
-        //NSLog(@"_torque %f", _torque);
+        //NSLog(@"_torque %f", self.physicsBody.mass);
         
-        
+        //NSLog(@"angleVel %f", self.physicsBody.angularVelocity);
+        self.physicsBody.angularVelocity = self.physicsBody.angularVelocity * (fabsf(self.steering.x)*0.06f);
+        self.physicsBody.angularVelocity = clampf(self.physicsBody.angularVelocity, -2.23f, 2.23f);
         
         
         CGPoint forcePosition = [self.thrusterBody convertPoint:self.thrusterBody.position toNode:self.parent];
         
-        [self.physicsBody applyForce:newForceVector atPoint:forcePosition ];
+        [self.physicsBody applyForce:ccpMult(newForceVector, self.physicsBody.mass * 25.12f) atPoint:forcePosition ];
     }
     else
     {
-        _power-=( (MAX_BOAT_POWER * 0.8f) * currentTime);
+        _power-=( (MAX_BOAT_POWER * 6.1f) * currentTime);
         _power = MAX(_power, 0);
 
         _torque = (self.steering.x * 0.006f) * _power;
@@ -165,7 +174,7 @@ static const float MAX_BOAT_POWER = 80.5f;
         //NSLog(@"_torque %f %f", _torque, _power);
         
         
-        self.physicsBody.angularDamping = 0.93f;
+        self.physicsBody.angularDamping = 1.0f;
         
         self.physicsBody.linearDamping = 1.0f - (_power/MAX_BOAT_POWER);
     }

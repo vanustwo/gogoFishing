@@ -105,46 +105,65 @@
     CGFloat controlsPadding = NToVP_X(0.07f);
     CGFloat buttonRadius = NToVP_X(0.045f);
     
-    
-    //Player 1
-    player1 = [[Player alloc] initPlayerAtPosition:ccp( NToVP_XF(0.5f), borderShapeNode.position.y + NToVP_YF(0.1f)) withView:self withSpriteName:@"redboat.png"];
-    
-    Joystick* joystick1 = [[Joystick alloc] initAtPosition:ccp( joyStickMoveRadius + controlsPadding, player1JoystickY ) joystickRadius:joyStickRadius joystickMoveRadius:joyStickMoveRadius ];
-    joystick1.joystickPosition = Joystick_Position_Bottom;
-    player1.joystick = joystick1;
-    player1.joystick.delegate = player1;
-    player1.boat.name = @"Player 1";
-    [self addChild:joystick1];
+    {
+        //Player 1
+        player1 = [[Player alloc] initPlayerAtPosition:ccp( NToVP_XF(0.5f), borderShapeNode.position.y + NToVP_YF(0.1f)) withView:self withSpriteName:@"redboat.png"];
+        
+        Joystick* joystick1 = [[Joystick alloc] initAtPosition:ccp( joyStickMoveRadius + controlsPadding, player1JoystickY ) joystickRadius:joyStickRadius joystickMoveRadius:joyStickMoveRadius ];
+        joystick1.joystickPosition = Joystick_Position_Bottom;
+        player1.joystick = joystick1;
+        player1.joystick.delegate = player1;
+        player1.boat.name = @"Player 1";
+        [self addChild:joystick1];
 
-    GameButton* gameButton1 = [[GameButton alloc] initAtPosition:ccp( NToVP_X(1.0f) - (buttonRadius + controlsPadding) , player1JoystickY) withLabel:@"A" withRadius:buttonRadius];
-    gameButton1.gameButtonType = GameButtonType_Accelerate;
-    player1.gameButtonA = gameButton1;
-    player1.gameButtonA.delegate = player1;
-    [self addChild:gameButton1];
+        GameButton* gameButtonA = [[GameButton alloc] initAtPosition:ccp( NToVP_X(0.8f) - (buttonRadius + controlsPadding) , player1JoystickY) withLabel:@"B" withRadius:buttonRadius];
+        gameButtonA.gameButtonType = GameButtonType_Brake;
+        player1.gameButtonA = gameButtonA;
+        player1.gameButtonA.delegate = player1;
+        [self addChild:gameButtonA];
+        
+        GameButton* gameButtonB = [[GameButton alloc] initAtPosition:ccp( NToVP_X(1.0f) - (buttonRadius + controlsPadding) , player1JoystickY) withLabel:@"A" withRadius:buttonRadius];
+        gameButtonB.gameButtonType = GameButtonType_Accelerate;
+        player1.gameButtonB = gameButtonB;
+        player1.gameButtonB.delegate = player1;
+        [self addChild:gameButtonB];
+        
+        
+        [self.playersArray addObject:player1];
+    }
     
-    [self.playersArray addObject:player1];
-    
-    //player 2
-    CGFloat player2JoystickY = NToVP_YF(1.0f) - (borderShapeNode.position.y/2);
-    player2 = [[Player alloc] initPlayerAtPosition:ccp( NToVP_XF(0.5f), NToVP_YF(1.0f) - (borderShapeNode.position.y + NToVP_YF(0.1f)) ) withView:self withSpriteName:@"yellowboat.png"];
-    player2.boat.zRotation = CC_DEGREES_TO_RADIANS(-180.f);
-    player2.boat.name = @"Player 2";
-    
-    Joystick* joystick2 = [[Joystick alloc] initAtPosition:ccp( NToVP_XF(1.0f) - (joyStickMoveRadius + controlsPadding), player2JoystickY ) joystickRadius:joyStickRadius joystickMoveRadius:joyStickMoveRadius ];
-    joystick2.joystickPosition = Joystick_Position_Top;
-    
-    player2.joystick = joystick2;
-    player2.joystick.delegate = player2;
-    [self addChild:joystick2];
+    {
+        //player 2
+        CGFloat player2JoystickY = NToVP_YF(1.0f) - (borderShapeNode.position.y/2);
+        player2 = [[Player alloc] initPlayerAtPosition:ccp( NToVP_XF(0.5f), NToVP_YF(1.0f) - (borderShapeNode.position.y + NToVP_YF(0.1f)) ) withView:self withSpriteName:@"yellowboat.png"];
+        player2.boat.zRotation = CC_DEGREES_TO_RADIANS(-180.f);
+        player2.boat.name = @"Player 2";
+        
+        Joystick* joystick2 = [[Joystick alloc] initAtPosition:ccp( NToVP_XF(1.0f) - (joyStickMoveRadius + controlsPadding), player2JoystickY ) joystickRadius:joyStickRadius joystickMoveRadius:joyStickMoveRadius ];
+        joystick2.joystickPosition = Joystick_Position_Top;
+        
+        player2.joystick = joystick2;
+        player2.joystick.delegate = player2;
+        [self addChild:joystick2];
 
-    GameButton* gameButton2 = [[GameButton alloc] initAtPosition:ccp( (buttonRadius + controlsPadding), player2JoystickY) withLabel:@"A" withRadius:buttonRadius];
-    gameButton2.gameButtonType = GameButtonType_Accelerate;
-    gameButton2.zRotation = CC_DEGREES_TO_RADIANS(-180.f);
-    player2.gameButtonA = gameButton2;
-    player2.gameButtonA.delegate = player2;
-    [self addChild:gameButton2];
-    
-    [self.playersArray addObject:player2];
+        GameButton* gameButton2 = [[GameButton alloc] initAtPosition:ccp( NToVP_X(0.2f) +  (buttonRadius + controlsPadding), player2JoystickY) withLabel:@"B" withRadius:buttonRadius];
+        gameButton2.gameButtonType = GameButtonType_Brake;
+        gameButton2.zRotation = CC_DEGREES_TO_RADIANS(-180.f);
+        player2.gameButtonA = gameButton2;
+        player2.gameButtonA.delegate = player2;
+        [self addChild:gameButton2];
+        
+        
+        GameButton* gameButtonB = [[GameButton alloc] initAtPosition:ccp( (buttonRadius + controlsPadding) , player2JoystickY) withLabel:@"A" withRadius:buttonRadius];
+        gameButtonB.gameButtonType = GameButtonType_Accelerate;
+        player2.gameButtonB = gameButtonB;
+        gameButtonB.zRotation = CC_DEGREES_TO_RADIANS(-180.f);
+        player2.gameButtonB.delegate = player2;
+        [self addChild:gameButtonB];
+        
+        
+        [self.playersArray addObject:player2];
+    }
 }
 
 
@@ -226,6 +245,9 @@
     
     rock.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromPath:path];
     rock.physicsBody.dynamic = NO;
+    rock.physicsBody.friction = 1.0f;
+    rock.physicsBody.restitution = 0.01f;
+    
     rock.physicsBody.categoryBitMask = GameColliderTypeWall;
     rock.physicsBody.collisionBitMask = GameColliderTypeBoat;
     rock.physicsBody.contactTestBitMask = GameColliderTypeBoat;
@@ -235,6 +257,8 @@
     rock2.physicsBody.categoryBitMask = GameColliderTypeWall;
     rock2.physicsBody.collisionBitMask = GameColliderTypeBoat;
     rock2.physicsBody.contactTestBitMask = GameColliderTypeBoat;
+    rock2.physicsBody.friction = 1.0f;
+    rock2.physicsBody.restitution = 0.01f;
     
     [self addChild:rock];
     [self addChild:rock2];
@@ -287,6 +311,7 @@
     }
     
     [self spawnFish];
+    [self spawnFish];
     [self updateScoreLabels];
 }
 
@@ -329,6 +354,21 @@
                     break;
                 }
             }
+            
+            if([player.gameButtonB.touch isEqual:touch])
+            {
+                NSLog(@"%@ touched gameButtonB 1", player.boat.name );
+                break;
+            }
+            else
+            {
+                if([player.gameButtonB touchBegan:touch withTouchPosition:location])
+                {
+                    NSLog(@"%@ touched gameButtonB 2", player.boat.name );
+                    break;
+                }
+            }
+            
         }
         
         
@@ -361,6 +401,7 @@
         {
             [player.joystick touchEnd:touch withTouchPosition:CGPointZero];
             [player.gameButtonA touchEnd:touch withTouchPosition:CGPointZero];
+            [player.gameButtonB touchEnd:touch withTouchPosition:CGPointZero];
         }
         
     }
