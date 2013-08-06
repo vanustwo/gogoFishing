@@ -12,7 +12,7 @@
 #import "MouseJoint.h"
 #import "ScreenUtil.h"
 
-@interface BaseView : SKScene <SKPhysicsContactDelegate>
+@interface BaseScene : SKScene <SKPhysicsContactDelegate>
 {
 
 }

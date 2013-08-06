@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "MyScene.h"
-#import "GameView.h"
+#import "GameScene.h"
 
 @implementation ViewController
 
@@ -24,11 +24,12 @@
     skView.showsDrawCount = YES;
     
     // Create and configure the scene.
-    SKScene * scene = [GameView sceneWithSize:skView.bounds.size];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
+    self.gameScene = [GameScene sceneWithSize:skView.bounds.size];
+    self.gameScene.scaleMode = SKSceneScaleModeAspectFill;
     
+    //self.gameScene = (GameScene*)scene;
     // Present the scene.
-    [skView presentScene:scene];
+    [skView presentScene:self.gameScene];
 }
 
 - (BOOL)shouldAutorotate
@@ -54,6 +55,11 @@
 {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
+}
+- (IBAction)resetGame:(id)sender {
+    NSLog(@"resetGame");
+    
+    
 }
 
 @end

@@ -25,12 +25,12 @@
 		2145EDEE17AA5E7D0087A388 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2145EDC617AA5E7D0087A388 /* UIKit.framework */; };
 		2145EDF617AA5E7D0087A388 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2145EDF417AA5E7D0087A388 /* InfoPlist.strings */; };
 		2145EDF817AA5E7D0087A388 /* gogofishingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EDF717AA5E7D0087A388 /* gogofishingTests.m */; };
-		2145EE1317AA5F0C0087A388 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE0317AA5F0C0087A388 /* BaseView.m */; };
+		2145EE1317AA5F0C0087A388 /* BaseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE0317AA5F0C0087A388 /* BaseScene.m */; };
 		2145EE1417AA5F0C0087A388 /* CGPointExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE0517AA5F0C0087A388 /* CGPointExtension.m */; };
 		2145EE1517AA5F0C0087A388 /* MouseJoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE0817AA5F0C0087A388 /* MouseJoint.m */; };
 		2145EE1617AA5F0C0087A388 /* PhysicShapeBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE0A17AA5F0C0087A388 /* PhysicShapeBuilder.m */; };
 		2145EE1917AA5F0C0087A388 /* ShapeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE1017AA5F0C0087A388 /* ShapeNode.m */; };
-		2145EE1A17AA5F0C0087A388 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE1217AA5F0C0087A388 /* GameView.m */; };
+		2145EE1A17AA5F0C0087A388 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE1217AA5F0C0087A388 /* GameScene.m */; };
 		2145EE1D17AA60DA0087A388 /* Boat.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE1C17AA60DA0087A388 /* Boat.m */; };
 		2145EE1E17AA60DA0087A388 /* Boat.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE1C17AA60DA0087A388 /* Boat.m */; };
 		2145EE2D17AA69B10087A388 /* blood.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2145EE2817AA69B10087A388 /* blood.sks */; };
@@ -47,6 +47,8 @@
 		2145EE3E17AA76AA0087A388 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE3C17AA76AA0087A388 /* Player.m */; };
 		2145EE4117AAA19D0087A388 /* GameButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE4017AAA19D0087A388 /* GameButton.m */; };
 		2145EE4217AAA19D0087A388 /* GameButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE4017AAA19D0087A388 /* GameButton.m */; };
+		2197EF5817B0FDC00048F6D9 /* EnergyBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2197EF5717B0FDC00048F6D9 /* EnergyBar.m */; };
+		2197EF5917B0FDC00048F6D9 /* EnergyBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2197EF5717B0FDC00048F6D9 /* EnergyBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,8 +87,8 @@
 		2145EDF317AA5E7D0087A388 /* gogofishingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "gogofishingTests-Info.plist"; sourceTree = "<group>"; };
 		2145EDF517AA5E7D0087A388 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2145EDF717AA5E7D0087A388 /* gogofishingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = gogofishingTests.m; sourceTree = "<group>"; };
-		2145EE0217AA5F0C0087A388 /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseView.h; sourceTree = "<group>"; };
-		2145EE0317AA5F0C0087A388 /* BaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseView.m; sourceTree = "<group>"; };
+		2145EE0217AA5F0C0087A388 /* BaseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseScene.h; sourceTree = "<group>"; };
+		2145EE0317AA5F0C0087A388 /* BaseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseScene.m; sourceTree = "<group>"; };
 		2145EE0417AA5F0C0087A388 /* CGPointExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPointExtension.h; sourceTree = "<group>"; };
 		2145EE0517AA5F0C0087A388 /* CGPointExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPointExtension.m; sourceTree = "<group>"; };
 		2145EE0617AA5F0C0087A388 /* GameMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMacros.h; sourceTree = "<group>"; };
@@ -96,8 +98,8 @@
 		2145EE0A17AA5F0C0087A388 /* PhysicShapeBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicShapeBuilder.m; sourceTree = "<group>"; };
 		2145EE0F17AA5F0C0087A388 /* ShapeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShapeNode.h; sourceTree = "<group>"; };
 		2145EE1017AA5F0C0087A388 /* ShapeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShapeNode.m; sourceTree = "<group>"; };
-		2145EE1117AA5F0C0087A388 /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
-		2145EE1217AA5F0C0087A388 /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
+		2145EE1117AA5F0C0087A388 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		2145EE1217AA5F0C0087A388 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		2145EE1B17AA60DA0087A388 /* Boat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boat.h; sourceTree = "<group>"; };
 		2145EE1C17AA60DA0087A388 /* Boat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Boat.m; sourceTree = "<group>"; };
 		2145EE2817AA69B10087A388 /* blood.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = blood.sks; sourceTree = "<group>"; };
@@ -111,6 +113,8 @@
 		2145EE3C17AA76AA0087A388 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		2145EE3F17AAA19D0087A388 /* GameButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameButton.h; sourceTree = "<group>"; };
 		2145EE4017AAA19D0087A388 /* GameButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameButton.m; sourceTree = "<group>"; };
+		2197EF5617B0FDC00048F6D9 /* EnergyBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnergyBar.h; sourceTree = "<group>"; };
+		2197EF5717B0FDC00048F6D9 /* EnergyBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnergyBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,8 +224,8 @@
 		2145EE0117AA5F0C0087A388 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				2145EE0217AA5F0C0087A388 /* BaseView.h */,
-				2145EE0317AA5F0C0087A388 /* BaseView.m */,
+				2145EE0217AA5F0C0087A388 /* BaseScene.h */,
+				2145EE0317AA5F0C0087A388 /* BaseScene.m */,
 				2145EE0417AA5F0C0087A388 /* CGPointExtension.h */,
 				2145EE0517AA5F0C0087A388 /* CGPointExtension.m */,
 				2145EE0617AA5F0C0087A388 /* GameMacros.h */,
@@ -231,8 +235,8 @@
 				2145EE0A17AA5F0C0087A388 /* PhysicShapeBuilder.m */,
 				2145EE0F17AA5F0C0087A388 /* ShapeNode.h */,
 				2145EE1017AA5F0C0087A388 /* ShapeNode.m */,
-				2145EE1117AA5F0C0087A388 /* GameView.h */,
-				2145EE1217AA5F0C0087A388 /* GameView.m */,
+				2145EE1117AA5F0C0087A388 /* GameScene.h */,
+				2145EE1217AA5F0C0087A388 /* GameScene.m */,
 				2145EE1B17AA60DA0087A388 /* Boat.h */,
 				2145EE1C17AA60DA0087A388 /* Boat.m */,
 				2145EE3617AA6D9B0087A388 /* GameDefines.h */,
@@ -244,6 +248,8 @@
 				2145EE4017AAA19D0087A388 /* GameButton.m */,
 				212144B017AC001B00C34059 /* ScreenUtil.h */,
 				212144B117AC001B00C34059 /* ScreenUtil.m */,
+				2197EF5617B0FDC00048F6D9 /* EnergyBar.h */,
+				2197EF5717B0FDC00048F6D9 /* EnergyBar.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -386,12 +392,13 @@
 				212144B217AC001B00C34059 /* ScreenUtil.m in Sources */,
 				2145EE1517AA5F0C0087A388 /* MouseJoint.m in Sources */,
 				2145EE3D17AA76AA0087A388 /* Player.m in Sources */,
+				2197EF5817B0FDC00048F6D9 /* EnergyBar.m in Sources */,
 				2145EE1417AA5F0C0087A388 /* CGPointExtension.m in Sources */,
 				2145EE4117AAA19D0087A388 /* GameButton.m in Sources */,
 				2145EDE117AA5E7D0087A388 /* MyScene.m in Sources */,
 				2145EDDE17AA5E7D0087A388 /* ViewController.m in Sources */,
-				2145EE1317AA5F0C0087A388 /* BaseView.m in Sources */,
-				2145EE1A17AA5F0C0087A388 /* GameView.m in Sources */,
+				2145EE1317AA5F0C0087A388 /* BaseScene.m in Sources */,
+				2145EE1A17AA5F0C0087A388 /* GameScene.m in Sources */,
 				2145EDD517AA5E7D0087A388 /* AppDelegate.m in Sources */,
 				2145EDD117AA5E7D0087A388 /* main.m in Sources */,
 				2145EE1617AA5F0C0087A388 /* PhysicShapeBuilder.m in Sources */,
@@ -408,6 +415,7 @@
 				2145EE4217AAA19D0087A388 /* GameButton.m in Sources */,
 				2145EE3A17AA74660087A388 /* Joystick.m in Sources */,
 				2145EE1E17AA60DA0087A388 /* Boat.m in Sources */,
+				2197EF5917B0FDC00048F6D9 /* EnergyBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

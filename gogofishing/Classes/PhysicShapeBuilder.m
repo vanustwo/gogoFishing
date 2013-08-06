@@ -60,16 +60,9 @@
     return shape;
 }
 
-+ (ShapeNode*)addPolygonShapeNodeWithSize:(CGSize)size withPhysicBody:(BOOL)usePhysics
++ (ShapeNode*)addPolygonShapeNodeWithSize:(CGMutablePathRef)path withPhysicBody:(BOOL)usePhysics
 {
     ShapeNode *shape = [[ShapeNode alloc] init];
-    
-    CGMutablePathRef path = CGPathCreateMutable();
-    
-    CGPathMoveToPoint(path, NULL, 0, 0);
-    CGPathAddLineToPoint(path, NULL, -10, 0);
-    CGPathAddLineToPoint(path, NULL, -10, 20);
-    CGPathCloseSubpath(path);
     
     shape.path = path;
     //shape.fillColor = [SKColor blueColor];
@@ -77,13 +70,10 @@
     shape.lineWidth = 0.4f;
     shape.antialiased = YES;
     
-    
-    
     if( usePhysics )
     {
         shape.physicsBody = [SKPhysicsBody bodyWithPolygonFromPath:path];
     }
-    CGPathRelease(path);
     return shape;
 }
 

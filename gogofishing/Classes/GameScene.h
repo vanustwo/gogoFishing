@@ -7,7 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-#import "BaseView.h"
+#import "BaseScene.h"
 #import "Joystick.h"
 #import "GameButton.h"
 #import "Player.h"
@@ -29,7 +29,7 @@ typedef enum{
 }GameState;
 
 
-@interface GameView : BaseView
+@interface GameScene : BaseScene
 {
     GameState                       gameState;
     CFTimeInterval                  m_timer;

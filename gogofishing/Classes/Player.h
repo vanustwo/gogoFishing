@@ -12,7 +12,7 @@
 #import "GameButton.h"
 
 @class Boat;
-@class GameView;
+@class GameScene;
 @class Joystick;
 @class GameButton;
 
@@ -21,14 +21,15 @@
     CGFloat         power;
 }
 
-- (id)initPlayerAtPosition:(CGPoint)position withView:(GameView*)gameView withSpriteName:(NSString*)spriteName;
+- (id)initPlayerAtPosition:(CGPoint)position withView:(GameScene*)gameView withSpriteName:(NSString*)spriteName;
 - (void)createBoatAtPosition:(CGPoint)position withSpriteName:(NSString*)spriteName;
 - (void)update:(CFTimeInterval)currentTime;
 - (void)doAcceleration:(BOOL)applyGas;
 
 @property(nonatomic,strong)Boat*        boat;
-@property(nonatomic,strong)GameView*    gameView;
+@property(nonatomic,strong)GameScene*    gameView;
 @property(nonatomic,weak)Joystick*      joystick;
 @property(nonatomic,weak)GameButton*    gameButtonA;
+
 
 @end

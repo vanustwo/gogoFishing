@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 ustwo. All rights reserved.
 //
 
-#import "BaseView.h"
+#import "BaseScene.h"
 
 #define kMinTimeInterval (1.0f / 60.0f)
 
-@implementation BaseView
+@implementation BaseScene
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {

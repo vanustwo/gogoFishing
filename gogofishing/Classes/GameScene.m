@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 ustwo. All rights reserved.
 //
 
-#import "GameView.h"
+#import "GameScene.h"
 #import "PhysicShapeBuilder.h"
 #import "Boat.h"
 #import "Joystick.h"
 
 #define MAX_TOUCHES             2
 
-@implementation GameView
+@implementation GameScene
 
 #pragma mark Init
 
@@ -133,6 +133,9 @@
 - (void)resetGame
 {
     gameState = GameState_Start;
+    
+    
+    
 }
 
 #pragma mark - Touch Handler

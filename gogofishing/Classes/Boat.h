@@ -10,7 +10,7 @@
 #import "ShapeNode.h"
 #import "GameMacros.h"
 
-@class GameView;
+@class GameScene;
 
 @interface Boat : SKSpriteNode
 {
@@ -25,7 +25,7 @@
 @property(nonatomic, assign)CGPoint     steering;
 
 
-- (void)createPhysicBodyWithGameView:(GameView*)gameView;
+- (void)createPhysicBodyWithGameView:(GameScene*)gameView;
 - (void)update:(CFTimeInterval)currentTime;
 
 

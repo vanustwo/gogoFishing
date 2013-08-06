@@ -9,6 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
 
+@class GameScene;
+
 @interface ViewController : UIViewController
+{
+    
+}
+
+@property (nonatomic, strong)GameScene* gameScene;
 
 @end

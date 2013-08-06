@@ -8,7 +8,7 @@
 
 #import "Boat.h"
 #import "PhysicShapeBuilder.h"
-#import "GameView.h"
+#import "GameScene.h"
 
 
 static const float MAX_BOAT_POWER = 80.5f;
@@ -23,9 +23,22 @@ static const float MAX_BOAT_POWER = 80.5f;
 
 @implementation Boat
 
-- (void)createPhysicBodyWithGameView:(GameView*)gameView
+- (void)createPhysicBodyWithGameView:(GameScene*)gameView
 {
+    
+    CGMutablePathRef path = CGPathCreateMutable();
+    
+    
+    CGPathMoveToPoint(path, NULL, -0.500, 27.000);
+    CGPathAddLineToPoint(path, NULL, -12.500, 4.000);
+    CGPathAddLineToPoint(path, NULL, -12.500, -30.000);
+    CGPathAddLineToPoint(path, NULL, 13.500, -30.000);
+    CGPathAddLineToPoint(path, NULL, 13.500, 4.000);
+    CGPathCloseSubpath(path);
+    
+    
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
+    
     self.physicsBody.dynamic = YES;
     self.physicsBody.categoryBitMask = GameColliderTypeBoat;
     self.physicsBody.collisionBitMask = GameColliderTypeBoat | GameColliderTypeWall;
@@ -33,18 +46,20 @@ static const float MAX_BOAT_POWER = 80.5f;
     self.physicsBody.friction = 1.0f;
     self.physicsBody.restitution = 0.09f;
     
+
+    
 #if DEBUG_DRAW==1
-    debugBody = [PhysicShapeBuilder addBoxShapeNodeWithSize:self.size withPhysicBody:YES];
-    debugBody.physicsBody.dynamic = YES;
+    debugBody = [PhysicShapeBuilder addPolygonShapeNodeWithSize:path withPhysicBody:NO];
+    /*debugBody.physicsBody.dynamic = YES;
     debugBody.physicsBody.categoryBitMask = GameColliderTypeBoat;
     debugBody.physicsBody.collisionBitMask = 0;
     debugBody.physicsBody.contactTestBitMask = 0;
-    
+    */
     [self addChild:debugBody];
 
 #endif
 
-    
+    CGPathRelease(path);
     
     NSLog(@" self.zRotation %f", self.zRotation);
     
@@ -53,7 +68,7 @@ static const float MAX_BOAT_POWER = 80.5f;
     CGSize smallBox = CGSizeMake(self.size.width*0.2f, self.size.width*0.2f);
     self.thrusterBody = [PhysicShapeBuilder addBoxShapeNodeWithSize:smallBox withPhysicBody:NO];
     self.thrusterBody.position = CGPointMake(0, -self.size.height/2);
-    self.thrusterBody.hidden = YES;
+    self.thrusterBody.hidden = NO;
     
     [self addChild:self.thrusterBody];
     
@@ -84,7 +99,7 @@ static const float MAX_BOAT_POWER = 80.5f;
         
         CGPoint forceVector = ccpMult(vector, _power);
         CGPoint newForceVector = ccp(forceVector.y, forceVector.x);
-       // NSLog(@"forceVector %f %f", newForceVector.x, newForceVector.y);
+        //NSLog(@"forceVector %f %f", newForceVector.x, newForceVector.y);
         
         //self.steering = ccp(25.0f, 0);
         
@@ -110,7 +125,6 @@ static const float MAX_BOAT_POWER = 80.5f;
         
         
         CGPoint forcePosition = [self.thrusterBody convertPoint:self.thrusterBody.position toNode:self.parent];
-        //NSLog(@"thrusterBody %f %f", a.x, a.y);
         
         [self.physicsBody applyForce:newForceVector atPoint:forcePosition ];
     }

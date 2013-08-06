@@ -8,13 +8,13 @@
 
 #import "Player.h"
 #import "Boat.h"
-#import "GameView.h"
+#import "GameScene.h"
 #import "GameMacros.h"
 
 @implementation Player
 
 
-- (id)initPlayerAtPosition:(CGPoint)position withView:(GameView*)gameView withSpriteName:(NSString*)spriteName
+- (id)initPlayerAtPosition:(CGPoint)position withView:(GameScene*)gameView withSpriteName:(NSString*)spriteName
 {
     
     if( self=[super init] )
