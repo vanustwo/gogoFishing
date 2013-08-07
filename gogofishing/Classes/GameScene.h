@@ -44,6 +44,7 @@ typedef enum{
 @property(nonatomic, strong)NSMutableArray*     fishArray;
 @property(nonatomic, strong)SKLabelNode*        player1ScoreLabel;
 @property(nonatomic, strong)SKLabelNode*        player2ScoreLabel;
+@property(nonatomic, strong)SKLabelNode*        winnerLabel;
 @property(nonatomic, strong)NSMutableArray*     fishSpawnPointsArray;
 
 - (void)resetGame;

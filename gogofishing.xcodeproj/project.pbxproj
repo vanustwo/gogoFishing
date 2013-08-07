@@ -33,8 +33,8 @@
 		2145EE1A17AA5F0C0087A388 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE1217AA5F0C0087A388 /* GameScene.m */; };
 		2145EE1D17AA60DA0087A388 /* Boat.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE1C17AA60DA0087A388 /* Boat.m */; };
 		2145EE1E17AA60DA0087A388 /* Boat.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145EE1C17AA60DA0087A388 /* Boat.m */; };
-		2145EE2D17AA69B10087A388 /* blood.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2145EE2817AA69B10087A388 /* blood.sks */; };
-		2145EE2E17AA69B10087A388 /* blood.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2145EE2817AA69B10087A388 /* blood.sks */; };
+		2145EE2D17AA69B10087A388 /* water.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2145EE2817AA69B10087A388 /* water.sks */; };
+		2145EE2E17AA69B10087A388 /* water.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2145EE2817AA69B10087A388 /* water.sks */; };
 		2145EE2F17AA69B10087A388 /* smoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2145EE2917AA69B10087A388 /* smoke.sks */; };
 		2145EE3017AA69B10087A388 /* smoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2145EE2917AA69B10087A388 /* smoke.sks */; };
 		2145EE3117AA69B10087A388 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 2145EE2A17AA69B10087A388 /* spark.png */; };
@@ -102,7 +102,7 @@
 		2145EE1217AA5F0C0087A388 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		2145EE1B17AA60DA0087A388 /* Boat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boat.h; sourceTree = "<group>"; };
 		2145EE1C17AA60DA0087A388 /* Boat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Boat.m; sourceTree = "<group>"; };
-		2145EE2817AA69B10087A388 /* blood.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = blood.sks; sourceTree = "<group>"; };
+		2145EE2817AA69B10087A388 /* water.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = water.sks; sourceTree = "<group>"; };
 		2145EE2917AA69B10087A388 /* smoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = smoke.sks; sourceTree = "<group>"; };
 		2145EE2A17AA69B10087A388 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		2145EE2C17AA69B10087A388 /* sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = sprites.atlas; sourceTree = "<group>"; };
@@ -266,7 +266,7 @@
 		2145EE2717AA69B10087A388 /* Particles */ = {
 			isa = PBXGroup;
 			children = (
-				2145EE2817AA69B10087A388 /* blood.sks */,
+				2145EE2817AA69B10087A388 /* water.sks */,
 				2145EE2917AA69B10087A388 /* smoke.sks */,
 				2145EE2A17AA69B10087A388 /* spark.png */,
 			);
@@ -362,7 +362,7 @@
 				2145EE3317AA69B10087A388 /* sprites.atlas in Resources */,
 				2145EDDB17AA5E7D0087A388 /* Main_iPad.storyboard in Resources */,
 				2145EE3117AA69B10087A388 /* spark.png in Resources */,
-				2145EE2D17AA69B10087A388 /* blood.sks in Resources */,
+				2145EE2D17AA69B10087A388 /* water.sks in Resources */,
 				2145EDD817AA5E7D0087A388 /* Main_iPhone.storyboard in Resources */,
 				2145EDCF17AA5E7D0087A388 /* InfoPlist.strings in Resources */,
 			);
@@ -373,7 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2145EE3417AA69B10087A388 /* sprites.atlas in Resources */,
-				2145EE2E17AA69B10087A388 /* blood.sks in Resources */,
+				2145EE2E17AA69B10087A388 /* water.sks in Resources */,
 				2145EE3217AA69B10087A388 /* spark.png in Resources */,
 				2145EE3017AA69B10087A388 /* smoke.sks in Resources */,
 				2145EDF617AA5E7D0087A388 /* InfoPlist.strings in Resources */,

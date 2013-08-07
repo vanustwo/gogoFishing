@@ -71,8 +71,15 @@ static const float MAX_BOAT_POWER = 60.5f;
     self.thrusterBody = [PhysicShapeBuilder addBoxShapeNodeWithSize:smallBox withPhysicBody:NO];
     self.thrusterBody.position = CGPointMake(0, -self.size.height/2);
     self.thrusterBody.hidden = YES;
-    
     [self addChild:self.thrusterBody];
+    
+    NSString *waterParticlePath = [[NSBundle mainBundle] pathForResource:@"water" ofType:@"sks"];
+    
+    SKEmitterNode *waterParticle = [NSKeyedUnarchiver unarchiveObjectWithFile:waterParticlePath];
+    waterParticle.position = CGPointMake(0, -self.size.height*0.6f);
+    waterParticle.targetNode = self;
+    [waterParticle resetSimulation];
+    [self addChild:waterParticle];
     
     self.applyAcceleration = NO;
     self.power = 0;
@@ -114,10 +121,6 @@ static const float MAX_BOAT_POWER = 60.5f;
         //NSLog(@"forceVector %f %f", newForceVector.x, newForceVector.y);
         
         //self.steering = ccp(25.0f, 0);
-
-        
-        
-        
         
         if(self.steering.x!=0)
         {

@@ -10,7 +10,7 @@
 #define gogofishing_GameDefines_h
 
 #define DEBUG_DRAW      0
-
+#define WINNING_SCORE   100
 
 typedef enum
 {

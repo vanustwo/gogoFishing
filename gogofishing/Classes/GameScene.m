@@ -26,9 +26,9 @@
         
         [self initPhysicsWorld];
         [self initPlayers];
-        [self initLabels];
         [self initFishes];
         [self initRocks];
+        [self initLabels];
         [self resetGame];
         
 
@@ -53,6 +53,11 @@
     [self addChild:self.player2ScoreLabel];
     self.player2ScoreLabel.yScale = -1;
     self.player2ScoreLabel.xScale = -1;
+    
+    self.winnerLabel = [SKLabelNode labelNodeWithFontNamed:@"Arial"];
+    self.winnerLabel.fontSize = 30;
+    self.winnerLabel.position = screenCenterPoint();
+    [self addChild:self.winnerLabel];
     
     [self updateScoreLabels];
     
@@ -164,6 +169,8 @@
         
         [self.playersArray addObject:player2];
     }
+    
+
 }
 
 
@@ -198,13 +205,13 @@
     
     
     [_fishSpawnPointsArray addObject:[NSValue valueWithCGPoint:screenCenterPoint()]];
-    [_fishSpawnPointsArray addObject:[NSValue valueWithCGPoint:ccp(620, 461)]];
+    /*[_fishSpawnPointsArray addObject:[NSValue valueWithCGPoint:ccp(620, 461)]];
     [_fishSpawnPointsArray addObject:[NSValue valueWithCGPoint:ccp(558, 284)]];
     
     [_fishSpawnPointsArray addObject:[NSValue valueWithCGPoint:ccp(115, 609)]];
     [_fishSpawnPointsArray addObject:[NSValue valueWithCGPoint:ccp(102, 774)]];
     
-    [_fishSpawnPointsArray addObject:[NSValue valueWithCGPoint:ccp(167, 486)]];
+    [_fishSpawnPointsArray addObject:[NSValue valueWithCGPoint:ccp(167, 486)]];*/
 
     
 }
@@ -213,7 +220,7 @@
 {
     [self createRockAtLocation:ccp(NToVP_X(0.3f), NToVP_Y(0.3f)) scale:1.0f rotation:0];
     [self createRockAtLocation:ccp(NToVP_X(0.8f), NToVP_Y(0.7f)) scale:0.5f rotation:CC_DEGREES_TO_RADIANS(-90)];
-    [self createRockAtLocation:screenCenterPoint() scale:0.5f rotation:CC_DEGREES_TO_RADIANS(-40)];
+   // [self createRockAtLocation:screenCenterPoint() scale:0.5f rotation:CC_DEGREES_TO_RADIANS(-40)];
 }
 
 - (void)createRockAtLocation:(CGPoint)location scale:(float)scale rotation:(float)rotation
@@ -313,82 +320,90 @@
     [self spawnFish];
     [self spawnFish];
     [self updateScoreLabels];
+    
+    self.winnerLabel.hidden = YES;
 }
 
 #pragma mark - Touch Handler
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 
-    for (UITouch *touch in touches) {
-        CGPoint location = [touch locationInNode:self];
-        NSLog(@"location %f %f", location.x, location.y);
-        
-        for( Player* player in self.playersArray )
-        {
-            if([player.joystick.touch isEqual:touch])
+    if(gameState==GameState_Start)
+    {
+    
+        for (UITouch *touch in touches) {
+            CGPoint location = [touch locationInNode:self];
+            NSLog(@"location %f %f", location.x, location.y);
+            
+            for( Player* player in self.playersArray )
             {
-                NSLog(@"%@ touched joyStick 1", player.boat.name );
-                break;
-            }
-            else
-            {
-                if([player.joystick touchBegan:touch withTouchPosition:location])
+                if([player.joystick.touch isEqual:touch])
                 {
-                    NSLog(@"%@ touched joyStick 2", player.boat.name );
+                    NSLog(@"%@ touched joyStick 1", player.boat.name );
+                    break;
+                }
+                else
+                {
+                    if([player.joystick touchBegan:touch withTouchPosition:location])
+                    {
+                        NSLog(@"%@ touched joyStick 2", player.boat.name );
 
-                    break;
+                        break;
+                    }
                 }
-            }
-            
-            
-            if([player.gameButtonA.touch isEqual:touch])
-            {
-                NSLog(@"%@ touched gameButtonA 1", player.boat.name );
-                break;
-            }
-            else
-            {
-                if([player.gameButtonA touchBegan:touch withTouchPosition:location])
+                
+                
+                if([player.gameButtonA.touch isEqual:touch])
                 {
-                    NSLog(@"%@ touched gameButtonA 2", player.boat.name );
+                    NSLog(@"%@ touched gameButtonA 1", player.boat.name );
                     break;
                 }
-            }
-            
-            if([player.gameButtonB.touch isEqual:touch])
-            {
-                NSLog(@"%@ touched gameButtonB 1", player.boat.name );
-                break;
-            }
-            else
-            {
-                if([player.gameButtonB touchBegan:touch withTouchPosition:location])
+                else
                 {
-                    NSLog(@"%@ touched gameButtonB 2", player.boat.name );
+                    if([player.gameButtonA touchBegan:touch withTouchPosition:location])
+                    {
+                        NSLog(@"%@ touched gameButtonA 2", player.boat.name );
+                        break;
+                    }
+                }
+                
+                if([player.gameButtonB.touch isEqual:touch])
+                {
+                    NSLog(@"%@ touched gameButtonB 1", player.boat.name );
                     break;
                 }
+                else
+                {
+                    if([player.gameButtonB touchBegan:touch withTouchPosition:location])
+                    {
+                        NSLog(@"%@ touched gameButtonB 2", player.boat.name );
+                        break;
+                    }
+                }
+                
             }
-            
         }
-        
         
     }
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    for (UITouch *touch in touches)
+    if(gameState==GameState_Start)
     {
-        CGPoint location = [touch locationInNode:self];
-        
-        for( Player* player in self.playersArray )
+        for (UITouch *touch in touches)
         {
-            if([player.joystick.touch isEqual:touch])
-            {
-                [player.joystick touchMove:touch withTouchPosition:location];
-                continue;
-            }
+            CGPoint location = [touch locationInNode:self];
             
+            for( Player* player in self.playersArray )
+            {
+                if([player.joystick.touch isEqual:touch])
+                {
+                    [player.joystick touchMove:touch withTouchPosition:location];
+                    continue;
+                }
+                
+            }
         }
     }
 }
@@ -431,7 +446,26 @@
                 }
                 
                 [player update:self.timeSinceLast];
+                
+                
+                if(player.score>=WINNING_SCORE)
+                {
+                    if( [player isEqual:player1] )
+                    {
+                        self.winnerLabel.text = @"Winner is Player 1";
+                    }
+                    else if( [player isEqual:player2] )
+                    {
+                        self.winnerLabel.text = @"Winner is Player 2";
+                    }
+
+                    self.winnerLabel.hidden = NO;
+                    gameState = GameState_End;
+                }
+                
             }
+           
+            
 
         }
             break;
@@ -453,19 +487,20 @@
 - (void)didBeginContact:(SKPhysicsContact *)contact
 {
 //    NSLog(@"didBeginContact");
-    
-    if( contact.bodyA && contact.bodyB && !contact.bodyA.node.hidden && !contact.bodyB.node.hidden)
+    if(gameState==GameState_Start)
     {
-        if( contact.bodyA.categoryBitMask==GameColliderTypeBoat && contact.bodyB.categoryBitMask==GameColliderTypeFish )
+        if( contact.bodyA && contact.bodyB && !contact.bodyA.node.hidden && !contact.bodyB.node.hidden)
         {
-            [self playerCollidedWithFish:contact.bodyA withFish:contact.bodyB];
-        }
-        else if( contact.bodyB.categoryBitMask==GameColliderTypeBoat && contact.bodyA.categoryBitMask==GameColliderTypeFish )
-        {
-            [self playerCollidedWithFish:contact.bodyB withFish:contact.bodyA];
+            if( contact.bodyA.categoryBitMask==GameColliderTypeBoat && contact.bodyB.categoryBitMask==GameColliderTypeFish )
+            {
+                [self playerCollidedWithFish:contact.bodyA withFish:contact.bodyB];
+            }
+            else if( contact.bodyB.categoryBitMask==GameColliderTypeBoat && contact.bodyA.categoryBitMask==GameColliderTypeFish )
+            {
+                [self playerCollidedWithFish:contact.bodyB withFish:contact.bodyA];
+            }
         }
     }
-    
 }
 
 - (void)didEndContact:(SKPhysicsContact *)contact
