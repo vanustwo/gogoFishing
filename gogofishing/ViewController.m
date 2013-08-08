@@ -20,8 +20,8 @@
     SKView * skView = (SKView *)self.view;
     skView.multipleTouchEnabled = true;
     skView.showsFPS = YES;
-    skView.showsNodeCount = YES;
-    skView.showsDrawCount = YES;
+    //skView.showsNodeCount = YES;
+    //skView.showsDrawCount = YES;
     
     // Create and configure the scene.
     self.gameScene = [GameScene sceneWithSize:skView.bounds.size];

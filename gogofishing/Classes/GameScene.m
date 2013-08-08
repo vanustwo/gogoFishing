@@ -204,14 +204,14 @@
     }
     
     
-    [_fishSpawnPointsArray addObject:[NSValue valueWithCGPoint:screenCenterPoint()]];
-    /*[_fishSpawnPointsArray addObject:[NSValue valueWithCGPoint:ccp(620, 461)]];
+   // [_fishSpawnPointsArray addObject:[NSValue valueWithCGPoint:screenCenterPoint()]];
+    [_fishSpawnPointsArray addObject:[NSValue valueWithCGPoint:ccp(620, 461)]];
     [_fishSpawnPointsArray addObject:[NSValue valueWithCGPoint:ccp(558, 284)]];
     
     [_fishSpawnPointsArray addObject:[NSValue valueWithCGPoint:ccp(115, 609)]];
     [_fishSpawnPointsArray addObject:[NSValue valueWithCGPoint:ccp(102, 774)]];
     
-    [_fishSpawnPointsArray addObject:[NSValue valueWithCGPoint:ccp(167, 486)]];*/
+    [_fishSpawnPointsArray addObject:[NSValue valueWithCGPoint:ccp(167, 486)]];
 
     
 }
@@ -220,7 +220,7 @@
 {
     [self createRockAtLocation:ccp(NToVP_X(0.3f), NToVP_Y(0.3f)) scale:1.0f rotation:0];
     [self createRockAtLocation:ccp(NToVP_X(0.8f), NToVP_Y(0.7f)) scale:0.5f rotation:CC_DEGREES_TO_RADIANS(-90)];
-   // [self createRockAtLocation:screenCenterPoint() scale:0.5f rotation:CC_DEGREES_TO_RADIANS(-40)];
+    [self createRockAtLocation:screenCenterPoint() scale:0.5f rotation:CC_DEGREES_TO_RADIANS(-40)];
 }
 
 - (void)createRockAtLocation:(CGPoint)location scale:(float)scale rotation:(float)rotation
